@@ -6,17 +6,19 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/04/15 18:44:04 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/01 17:12:09 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define LIBFT_H
 #ifdef LIBFT_H
 
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 
+/*-----------------------------------------LIBFT---------------------------------------------*/
 /*Libc functions*/
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -62,7 +64,9 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 /*Partie bonus*/
+/*--------------------------------------------------------------------------------------------*/
 
+/*-----------------------------------------PRINTF---------------------------------------------*/
 typedef struct s_list
 {
 	void			*content;
@@ -81,5 +85,36 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
+
+/* Printf */
+
+int					ft_print_char(char c);
+int					ft_print_string(char *s);
+int					ft_print_decimal(int n);
+int					ft_print_udecimal(unsigned int n);
+int					ft_print_hex(unsigned int n, char *base);
+
+/* Utils_2 */
+int					ft_print_udecimal(unsigned int n);
+int					ft_print_add(unsigned long add);
+int					ft_print_hex_add(unsigned long n);
+
+/* Utils_len */
+int					ft_int_len(long n);
+int					ft_add_len(unsigned long add);
+int					ft_hex_len(unsigned int hex);
+
+/* Parse */
+int					ft_check_next_char(const char *s, int index);
+int					ft_parse_printf(const char *s, int index, va_list *par);
+
+/* Printf */
+int					ft_printf(const char *s, ...);
+
+/*--------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------ADDED FUNCTIONS----------------------------------------*/
+
+void	ft_putunbr_fd(unsigned int n, int fd);
 
 #endif

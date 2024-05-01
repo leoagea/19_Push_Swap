@@ -6,7 +6,7 @@
 #    By: lagea <lagea@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/01 16:07:15 by lagea             #+#    #+#              #
-#    Updated: 2024/05/01 16:32:40 by lagea            ###   ########.fr        #
+#    Updated: 2024/05/01 17:18:20 by lagea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,7 @@ SRC = src/ft_atoi.c src/ft_bzero.c src/ft_calloc.c src/ft_isalnum.c src/ft_isalp
 		src/ft_lstlast_bonus.c src/ft_lstclear_bonus.c src/ft_lstdelone_bonus.c \
 		src/ft_lstmap_bonus.c src/ft_lstsize_bonus.c src/ft_lstiter_bonus.c \
 		src/printf.c src/parse.c src/print_elements.c \
-		src/print_elements_2.c src/utils_len.c src/utils_libft.c \
-
+		src/print_elements_2.c src/utils_len.c src/ft_putunbr_fd.c
 
 OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
