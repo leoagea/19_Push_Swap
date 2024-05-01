@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 21:34:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/01 16:15:30 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/01 16:59:01 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	long	nbr;
 
+	if (fd < 0)
+		return ;
 	nbr = (long)n;
 	if (nbr < 0)
 	{
