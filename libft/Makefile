@@ -1,53 +1,75 @@
-SRCS	= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
-		ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c \
-		ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strchr.c \
-		ft_strdup.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c \
-		ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c \
-		ft_substr.c ft_strjoin.c ft_split.c ft_itoa.c \
-		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
-		ft_putnbr_fd.c ft_strtrim.c ft_striteri.c ft_strmapi.c 
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lagea <lagea@student.s19.be>               +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/05/01 16:07:15 by lagea             #+#    #+#              #
+#    Updated: 2024/05/01 16:32:40 by lagea            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-BONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstadd_back_bonus.c \
-		ft_lstlast_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c \
-		ft_lstmap_bonus.c ft_lstsize_bonus.c ft_lstiter_bonus.c
+GREEN=\033[0;32m
+YELLOW=\033[1;33m
+BLUE=\033[0;34m
+ORANGE=\033[38;2;255;165;0m
+NC=\033[0m
 
-OBJS		= ${SRCS:.c=.o}
+NAME = libft.a
 
-OBJB		= ${BONUS:.c=.o}
+SRC_DIR = src/
+OBJ_DIR = obj/
+INC_DIR = inc/
+LIB_DIR = ../lib/
+LIBNAME = $(LIB_DIR)$(NAME)
 
-HEAD		= ./includes/
+SRC = src/ft_atoi.c src/ft_bzero.c src/ft_calloc.c src/ft_isalnum.c src/ft_isalpha.c \
+		src/ft_isascii.c src/ft_isdigit.c src/ft_isprint.c src/ft_memchr.c \
+		src/ft_memcmp.c src/ft_memcpy.c src/ft_memmove.c src/ft_memset.c src/ft_strchr.c \
+		src/ft_strdup.c src/ft_strlcat.c src/ft_strlcpy.c src/ft_strlen.c src/ft_strncmp.c \
+		src/ft_strnstr.c src/ft_strrchr.c src/ft_tolower.c src/ft_toupper.c \
+		src/ft_substr.c src/ft_strjoin.c src/ft_split.c src/ft_itoa.c \
+		src/ft_putchar_fd.c src/ft_putstr_fd.c src/ft_putendl_fd.c \
+		src/ft_putnbr_fd.c src/ft_strtrim.c src/ft_striteri.c src/ft_strmapi.c \
+		src/ft_lstnew_bonus.c src/ft_lstadd_front_bonus.c src/ft_lstadd_back_bonus.c \
+		src/ft_lstlast_bonus.c src/ft_lstclear_bonus.c src/ft_lstdelone_bonus.c \
+		src/ft_lstmap_bonus.c src/ft_lstsize_bonus.c src/ft_lstiter_bonus.c \
+		src/printf.c src/parse.c src/print_elements.c \
+		src/print_elements_2.c src/utils_len.c src/utils_libft.c \
 
-NAME		= libft.a
 
-AR			= ar rc
+OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
-RM			= rm -f
+CC = gcc
+RM	= rm -f
+CFLAGS = -Wall -Wextra -Werror
+INCS = -I$(INC_DIR) -I.
 
-LIB			= ranlib
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
-GCC			= gcc
+all: $(NAME)
 
-CFLAGS		= -Wall -Wextra -Werror
-
-all:		${NAME}
-
-.c.o:
-			${GCC} ${CFLAGS} -c -I ${HEAD} $< -o ${<:.c=.o}
-
-${NAME}:	${OBJS}
-			${AR} ${NAME} ${OBJS}
-			@echo "\nCompilation libft without bonus\n"
-
-bonus:	${OBJ} ${OBJB}
-		${AR} ${NAME} $^
-		@echo "\nCompilation libft with bonus\n"
-
+$(NAME): $(OBJ)
+	@echo "$(GREEN)Creating libft library $(LIBNAME)...$(NC)"
+	@mkdir -p $(LIB_DIR)
+	@ar rc $(LIBNAME) $(OBJ)
+	@echo "$(BLUE)Library libft created!$(NC)"
+	
 clean:
-			rm -f ${OBJS} ${OBJB} 
+	@echo "$(ORANGE)Cleaning objects libft...$(NC)"
+	@$(RM) $(OBJ)
+	@rm -rf $(OBJ_DIR)
+	@echo "$(GREEN)Cleaned objects libft!$(NC)"
 
-fclean:		clean
-			rm -f ${NAME}
+fclean: clean
+	@echo "$(ORANGE)Fully cleaning libft...$(NC)"
+	@$(RM) $(LIBNAME)
+	@rm -rf $(LIB_DIR)
+	@echo "$(BLUE)Fully cleaned libft!$(NC)"
 
-re:			fclean all
+re: fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean re
