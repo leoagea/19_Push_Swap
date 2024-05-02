@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 17:00:18 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/02 18:38:37 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,17 @@ struct dll_edge
 	
 };
 
+typedef struct s_stack
+{
+	struct dll_edge *a;
+	struct dll_edge *b;
+}	t_stack;
+
 /*---------------------Parse_Arg---------------------*/
 char **parse_arg(int ac, char **av);
 size_t d_array_len (char **lst);
 
-/* --------------------- ---------------------*/
+/* -------------------- Init_Stack--------------------*/
+t_stack *stack_init();
 
 #endif

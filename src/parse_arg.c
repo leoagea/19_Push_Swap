@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 11:53:32 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/02 11:57:15 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,16 @@ size_t d_array_len (char **lst)
 
 char **parse_arg(int ac, char **av)
 {
+	size_t len;
 	char **lst;
+	
 	if (ac == 2)
 	{
 		lst = ft_split(av[1],' ');
+		len = d_array_len(lst);
+		for (int i = 0;i < len;i++)
+			printf("%s\n",lst[i]);
 	}
-	for (int i = 0;i < 12;i++)
-		printf("%s\n",lst[i]);
-	printf("\n%zu\n",d_array_len(lst));
 	return lst;
 }
 

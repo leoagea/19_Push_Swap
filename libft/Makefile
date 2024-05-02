@@ -6,7 +6,7 @@
 #    By: lagea <lagea@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/01 16:07:15 by lagea             #+#    #+#              #
-#    Updated: 2024/05/01 17:18:20 by lagea            ###   ########.fr        #
+#    Updated: 2024/05/02 18:23:48 by lagea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,12 +36,14 @@ SRC = src/ft_atoi.c src/ft_bzero.c src/ft_calloc.c src/ft_isalnum.c src/ft_isalp
 		src/ft_lstlast_bonus.c src/ft_lstclear_bonus.c src/ft_lstdelone_bonus.c \
 		src/ft_lstmap_bonus.c src/ft_lstsize_bonus.c src/ft_lstiter_bonus.c \
 		src/printf.c src/parse.c src/print_elements.c \
-		src/print_elements_2.c src/utils_len.c src/ft_putunbr_fd.c
+		src/print_elements_2.c src/utils_len.c src/ft_putunbr_fd.c \
+		src/dll_insert_head.c src/dll_insert_tail.c src/dll_new_node.c \
+		src/dll_print_forward.c src/dll_init.c src/dll_size.c
 
 OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
 CC = gcc
-RM	= rm -f
+RM	= rm -rf
 CFLAGS = -Wall -Wextra -Werror
 INCS = -I$(INC_DIR) -I.
 
@@ -59,8 +61,7 @@ $(NAME): $(OBJ)
 	
 clean:
 	@echo "$(ORANGE)Cleaning objects libft...$(NC)"
-	@$(RM) $(OBJ)
-	@rm -rf $(OBJ_DIR)
+	@$(RM) $(OBJ_DIR)
 	@echo "$(GREEN)Cleaned objects libft!$(NC)"
 
 fclean: clean
