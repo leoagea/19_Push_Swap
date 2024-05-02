@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 18:06:31 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/02 18:27:07 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,10 +123,11 @@ void				ft_putunbr_fd(unsigned int n, int fd);
 
 /*---------------------------DOUBLE LIMKED LIST-------------------------------*/
 
+struct dll_edge		*dll_init(void);
 t_node				*dll_new_node(ssize_t data);
+size_t				dll_size(struct dll_edge *edge);
 void				dll_insert_head(ssize_t data, struct dll_edge *edge);
 void				dll_insert_tail(ssize_t data, struct dll_edge *edge);
 void				dll_print_forward(struct dll_edge *edge);
-struct dll_edge		*dll_init(void);
 
 #endif
