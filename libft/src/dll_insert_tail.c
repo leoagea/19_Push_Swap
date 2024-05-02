@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   dll_insert_tail.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 17:00:18 by lagea            ###   ########.fr       */
+/*   Created: 2024/05/02 13:34:55 by lagea             #+#    #+#             */
+/*   Updated: 2024/05/02 16:59:13 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "../../inc/libft.h"
+#include "../../inc/push_swap.h"
 
-#include <stdio.h> //printf
-
-typedef struct s_node
+void dll_insert_tail(ssize_t data, struct dll_edge *edge)
 {
-	ssize_t value;
-	struct s_node *prev;
-	struct s_node *next;
-		
-}	t_node;
+	t_node *new;
 
-struct dll_edge
-{
-	t_node *head;
-	t_node *tail;
-	
-};
-
-/*---------------------Parse_Arg---------------------*/
-char **parse_arg(int ac, char **av);
-size_t d_array_len (char **lst);
-
-/* --------------------- ---------------------*/
-
-#endif
+	new = dll_new_node(data);
+	if (edge->tail == NULL)
+	{
+		edge->head = new;
+		edge->tail = new;
+	}
+	else
+	{
+		new->prev = edge->tail;
+		edge->tail->next = new;
+		edge->tail = new;
+	}
+}

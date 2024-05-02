@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   dll_new_node.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 17:00:18 by lagea            ###   ########.fr       */
+/*   Created: 2024/05/02 12:23:41 by lagea             #+#    #+#             */
+/*   Updated: 2024/05/02 16:56:01 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "../../inc/libft.h"
+#include "../../inc/push_swap.h"
 
-#include <stdio.h> //printf
-
-typedef struct s_node
+t_node	*dll_new_node(ssize_t data)
 {
-	ssize_t value;
-	struct s_node *prev;
-	struct s_node *next;
-		
-}	t_node;
+	t_node *new;
 
-struct dll_edge
-{
-	t_node *head;
-	t_node *tail;
-	
-};
-
-/*---------------------Parse_Arg---------------------*/
-char **parse_arg(int ac, char **av);
-size_t d_array_len (char **lst);
-
-/* --------------------- ---------------------*/
-
-#endif
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->value = data;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}

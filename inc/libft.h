@@ -6,18 +6,18 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 13:37:29 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/02 18:06:31 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define LIBFT_H
-#ifdef LIBFT_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
+# include "push_swap.h"
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include "push_swap.h"
 
 /*-----------------------------------------LIBFT---------------------------------------------*/
 /*Libc functions*/
@@ -65,9 +65,7 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 /*Partie bonus*/
-/*--------------------------------------------------------------------------------------------*/
 
-/*-----------------------------------------PRINTF---------------------------------------------*/
 typedef struct s_list
 {
 	void			*content;
@@ -87,6 +85,9 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 
+/*-----------------------------------------------------------------------------*/
+
+/*----------------------------------PRINTF-------------------------------------*/
 /* Printf */
 
 int					ft_print_char(char c);
@@ -112,18 +113,20 @@ int					ft_parse_printf(const char *s, int index, va_list *par);
 /* Printf */
 int					ft_printf(const char *s, ...);
 
-/*--------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
 
-/*-------------------------------------ADDED FUNCTIONS----------------------------------------*/
+/*------------------------------ADDED FUNCTIONS-----+--------------------------*/
 
-void	ft_putunbr_fd(unsigned int n, int fd);
+void				ft_putunbr_fd(unsigned int n, int fd);
 
-/*--------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
 
-/*------------------------------------DOUBLE LIMKED LIST---------------------------------------*/
+/*---------------------------DOUBLE LIMKED LIST-------------------------------*/
 
-t_node	*dll_new_node(ssize_t data);
-void ddl_insert_head(void *data);
-void ddl_insert_tail(ssize_t data);
+t_node				*dll_new_node(ssize_t data);
+void				dll_insert_head(ssize_t data, struct dll_edge *edge);
+void				dll_insert_tail(ssize_t data, struct dll_edge *edge);
+void				dll_print_forward(struct dll_edge *edge);
+struct dll_edge		*dll_init(void);
 
 #endif

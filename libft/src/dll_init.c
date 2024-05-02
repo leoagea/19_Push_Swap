@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ddl_insert_tail.c                                  :+:      :+:    :+:   */
+/*   dll_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 13:34:55 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 13:37:21 by lagea            ###   ########.fr       */
+/*   Created: 2024/05/02 16:44:53 by lagea             #+#    #+#             */
+/*   Updated: 2024/05/02 18:14:04 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
-#include "../../inc/push_swap.h"
+#include "../inc/libft.h"
 
-void ddl_insert_tail(ssize_t data)
+struct dll_edge *dll_init(void)
 {
-	t_node *new;
+	struct dll_edge *edge;
 
-	new = ddl_new_node(data);
-	if (tail == NULL)
-	{
-		head = new;
-		tail = new;
-	}
-	else
-	{
-		new->prev = tail;
-		tail->next = new;
-		tail = new;
-	}
+	edge = malloc(sizeof(struct dll_edge));
+	edge->head = NULL;
+	edge->tail = NULL;
+
+	return (edge);
 }
