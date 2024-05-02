@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 12:38:56 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/02 13:17:28 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,6 @@ void	ft_putunbr_fd(unsigned int n, int fd);
 
 /*------------------------------------DOUBLE LIMKED LIST---------------------------------------*/
 
-t_node	*ft_dllstnew(void *content);
+t_node	*dll_new_node(void *content);
 
 #endif
