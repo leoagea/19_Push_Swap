@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 18:37:07 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/03 13:11:21 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,28 @@ t_stack *stack_init()
 	stack->a = edge_a;
 	stack->b = edge_b;
 	return(stack);
+}
+
+void stack_print_forward(t_stack *stack,char c)
+{
+	t_node *current;
+
+	if (c == 'a')
+	{
+		current = stack->a->head;
+		while (current != NULL)
+		{
+			printf("%zd\n",current->value);
+			current = current->next;
+		}
+	}
+	else if (c == 'b')
+	{
+		current = stack->b->head;
+		while (current != NULL)
+		{
+			printf("%zd\n",current->value);
+			current = current->next;
+		}
+	}
 }
