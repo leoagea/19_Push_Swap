@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/03 15:36:44 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/03 18:38:26 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdio.h> //printf
+# include <limits.h> //Macro INT_MAX
 
 typedef struct s_node
 {
@@ -44,9 +45,8 @@ size_t				d_array_len(char **lst);
 
 t_stack				*stack_init(void);
 void				stack_print_forward(t_stack *stack, char c);
-void				exit_error(t_stack *stack);
+void				exit_error(t_stack *stack, char **lst);
 
 /* ----------------------Check-----------------------*/
-
 
 #endif

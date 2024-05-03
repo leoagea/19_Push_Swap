@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/03 15:29:38 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/03 18:39:23 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,38 @@ void stack_print_forward(t_stack *stack,char c)
 	}
 }
 
-void exit_error(t_stack *stack)
+void exit_error(t_stack *stack, char **lst)
 {
+	size_t i;
+
+	i = 0;
+	while (*lst != NULL)
+		free(lst[i++]);
+	free(lst);
 	if (stack)
 	{
 		free(stack);
 		write(2, "Error Parsing\n", 14);
+    	system("leaks a.out");
 		exit(0);
 	}
 	exit(0);
+}
+
+size_t check_error(t_stack *stack, char **lst)
+{
+	size_t i;
+	size_t j;
+
+	i = -1;
+	j = -1;
+	while (lst [++i])
+	{
+		while (lst [i][++j])
+			if (ft_isalpha((int)lst [i][j]))
+				exit_error(stack,lst);
+		if (ft_atoi(lst [i]) > INT_MAX)
+			exit_error(stack,lst);
+	}
+	return 1;
 }
