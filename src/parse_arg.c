@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 11:57:15 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/03 15:27:34 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,29 @@ size_t d_array_len (char **lst)
 	return len;
 }
 
-char **parse_arg(int ac, char **av)
+char **parse_arg(int ac, char **av, t_stack *stack)
 {
+	size_t i;
+	size_t j;
 	size_t len;
 	char **lst;
 	
+	i = -1;
+	j = -1;
 	if (ac == 2)
 	{
 		lst = ft_split(av[1],' ');
 		len = d_array_len(lst);
-		for (int i = 0;i < len;i++)
-			printf("%s\n",lst[i]);
+		while(++i < len)
+		{
+			while (lst[++j])
+				if (ft_isalpha((int)lst[j]))
+					exit_error(stack);
+			dll_insert_tail(ft_atoi(lst[i]),stack->a);
+			free(lst[i]);
+		}
+		free(lst);
 	}
+	stack_print_forward(stack, 'a');
 	return lst;
-}
-
-
-int main(int ac,char **av)
-{
-	if (ac == 2)
-		parse_arg(ac,av);
-	return 0;
 }

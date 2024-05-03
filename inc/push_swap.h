@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/03 13:12:15 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/03 15:36:44 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,16 @@ typedef struct s_stack
 
 /*---------------------Parse_Arg---------------------*/
 
-char				**parse_arg(int ac, char **av);
+char				**parse_arg(int ac, char **av, t_stack *stack);
 size_t				d_array_len(char **lst);
 
-/* -------------------- Init_Stack--------------------*/
+/* --------------------Init_Stack--------------------*/
 
 t_stack				*stack_init(void);
 void				stack_print_forward(t_stack *stack, char c);
+void				exit_error(t_stack *stack);
+
+/* ----------------------Check-----------------------*/
+
 
 #endif
