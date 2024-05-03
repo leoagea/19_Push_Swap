@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 18:38:16 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/03 14:35:36 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 
-
 /*----------------------------------PRINTF-------------------------------------*/
 /* Printf */
 
@@ -112,11 +111,9 @@ int					ft_parse_printf(const char *s, int index, va_list *par);
 /* Printf */
 int					ft_printf(const char *s, ...);
 
-
 /*------------------------------ADDED FUNCTIONS-----+--------------------------*/
 
 void				ft_putunbr_fd(unsigned int n, int fd);
-
 
 /*---------------------------DOUBLE LIMKED LIST-------------------------------*/
 
@@ -126,5 +123,6 @@ size_t				dll_size(struct dll_edge *edge);
 void				dll_insert_head(ssize_t data, struct dll_edge *edge);
 void				dll_insert_tail(ssize_t data, struct dll_edge *edge);
 void				dll_print_forward(struct dll_edge *edge);
+void				dll_clear(struct dll_edge *edge);
 
 #endif
