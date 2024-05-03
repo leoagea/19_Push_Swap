@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/03 13:11:21 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/03 15:29:38 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,15 @@ void stack_print_forward(t_stack *stack,char c)
 			current = current->next;
 		}
 	}
+}
+
+void exit_error(t_stack *stack)
+{
+	if (stack)
+	{
+		free(stack);
+		write(2, "Error Parsing\n", 14);
+		exit(0);
+	}
+	exit(0);
 }
