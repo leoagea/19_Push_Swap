@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 20:51:07 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/04 21:04:31 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ size_t				d_array_len(char **lst);
 
 t_stack				*stack_init(void);
 void				stack_print_forward(t_stack *stack, char c);
+void stack_cpy_a_to_b(t_stack *stack);
 
 /* -------------------Check_error--------------------*/
 
@@ -57,5 +58,6 @@ size_t check_quote_arg(char **av, size_t i);
 /* ----------------------Move-----------------------*/
 
 void move_sa(t_stack *stack);
+void move_sb(t_stack *stack);
 
 #endif
