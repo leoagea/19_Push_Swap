@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 18:39:33 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/04 20:43:27 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,8 @@ void exit_error(t_stack *stack, char **lst, size_t i)
 {
 	while (lst[i] != NULL)
 		free(lst[i++]);
-	// free(lst);
 	if (stack)
 	{
-		// free(stack);
 		write(2, "Error Parsing\n", 14);
     	system("leaks a.out");
 		exit(EXIT_FAILURE);
@@ -55,4 +53,21 @@ void exit_error(t_stack *stack, char **lst, size_t i)
 	write(2, "Error Parsing\n", 14);
     system("leaks a.out");
 	exit(EXIT_FAILURE);
+}
+
+size_t check_quote_arg(char **av, size_t i)
+{
+	char **lst;
+
+	printf("test\n");
+	printf("i : %zu\n",i);
+	lst = ft_split(av[i], ' '); /// segfault check
+	printf("test\n");
+	if (d_array_len(lst) > 1)
+	{
+		write(2, "Error Parsing\n", 14);
+		system("leaks a.out");
+		exit(EXIT_FAILURE);
+	}
+	return 1;
 }

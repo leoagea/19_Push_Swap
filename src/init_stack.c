@@ -6,32 +6,12 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 18:39:04 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/04 21:09:53 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 #include "../inc/libft.h"
-
-// t_node fill_stack(char **lst ,size_t len)
-// {
-// 	size_t i;
-// 	ssize_t value;
-// 	t_node first;
-
-// 	i = 0;
-// 	value = 0;
-// 	while(lst [i] != NULL)
-// 	{
-// 		value = ft_atoi(lst [i]);
-// 		if (i == 0)
-// 			first = ft_lstnew(value);
-// 		else
-// 		{
-// 		}
-// 		i++;
-// 	}
-// }
 
 t_stack *stack_init()
 {
@@ -71,28 +51,31 @@ void stack_print_forward(t_stack *stack,char c)
 	}
 }
 
-void exit_error_array(char **lst, size_t i)
+void stack_cpy_a_to_b(t_stack *stack)
 {
-	while (lst[i] != NULL)
-		free(lst[i++]);
-	write(2, "Error Parsing\n", 14);
-    system("leaks a.out");
-	exit(EXIT_FAILURE);
+
+	// Segfault a corriger
+	
+	ssize_t cpy_value;
+	t_node *current_a;
+	t_node *current_b;
+	
+
+	current_a = stack->a->head;
+	current_b = stack->b->head;
+	while (current_a != NULL)
+	{
+		printf("test 1\n");
+		cpy_value = current_a->value;
+		printf("print value : %zd\n",cpy_value);
+		current_b->value = cpy_value;
+		printf("test 2\n");
+		current_a = current_a->next;
+		current_b = current_b->next;
+	}
+	printf("test 2\n");
+
+	// free(current_a);
+	// free(current_b);
 }
 
-void exit_error(t_stack *stack, char **lst, size_t i)
-{
-	while (lst[i] != NULL)
-		free(lst[i++]);
-	// free(lst);
-	if (stack)
-	{
-		// free(stack);
-		write(2, "Error Parsing\n", 14);
-    	system("leaks a.out");
-		exit(EXIT_FAILURE);
-	}
-	write(2, "Error Parsing\n", 14);
-    system("leaks a.out");
-	exit(EXIT_FAILURE);
-}
