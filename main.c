@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/03 15:35:03 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/04 17:56:29 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,22 @@
 int main(int ac, char **av) 
 {
     t_stack *stack;
-
+    
+    int i = 0;
     stack = stack_init();
     if (ac == 2)
 		parse_arg(ac,av,stack);
+    else
+    {
+        write(2, "Error Parsing\n", 14);
+        system("leaks a.out");
+        exit(EXIT_FAILURE);
+    }
     dll_clear(stack->a);
     system("leaks a.out");
     return 0; 
 }
+
 
 //echo $? pour check le code erreur
 

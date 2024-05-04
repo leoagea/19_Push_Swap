@@ -6,15 +6,15 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/03 18:38:26 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/04 18:40:45 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h> //printf
 # include <limits.h> //Macro INT_MAX
+# include <stdio.h>  //printf
 
 typedef struct s_node
 {
@@ -45,8 +45,11 @@ size_t				d_array_len(char **lst);
 
 t_stack				*stack_init(void);
 void				stack_print_forward(t_stack *stack, char c);
-void				exit_error(t_stack *stack, char **lst);
 
-/* ----------------------Check-----------------------*/
+/* -------------------Check_error------------------*/
+
+void				exit_error_array(char **lst, size_t i);
+void				exit_error(t_stack *stack, char **lst, size_t i);
+size_t				check_error_arg(char **lst, size_t i);
 
 #endif

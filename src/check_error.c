@@ -1,74 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 18:39:04 by lagea            ###   ########.fr       */
+/*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
+/*   Updated: 2024/05/04 18:39:33 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
 #include "../inc/libft.h"
+#include "../inc/push_swap.h"
 
-// t_node fill_stack(char **lst ,size_t len)
-// {
-// 	size_t i;
-// 	ssize_t value;
-// 	t_node first;
-
-// 	i = 0;
-// 	value = 0;
-// 	while(lst [i] != NULL)
-// 	{
-// 		value = ft_atoi(lst [i]);
-// 		if (i == 0)
-// 			first = ft_lstnew(value);
-// 		else
-// 		{
-// 		}
-// 		i++;
-// 	}
-// }
-
-t_stack *stack_init()
+size_t check_error_arg(char **lst, size_t i)
 {
-	struct dll_edge *edge_a;
-	struct dll_edge *edge_b;
-	t_stack *stack;
-	
-	edge_a = dll_init();
-	edge_b = dll_init();
-	stack = malloc(sizeof(t_stack));
-	stack->a = edge_a;
-	stack->b = edge_b;
-	return(stack);
-}
+	size_t j;
 
-void stack_print_forward(t_stack *stack,char c)
-{
-	t_node *current;
-
-	if (c == 'a')
+	j = -1;
+	while (lst [++i])
 	{
-		current = stack->a->head;
-		while (current != NULL)
+		while (lst [i][++j])
 		{
-			printf("%zd\n",current->value);
-			current = current->next;
+			if (!ft_isdigit((int)lst [i][j]))
+				exit_error_array(lst, i);
 		}
+		if (ft_atoi(lst [i]) > INT_MAX)
+				exit_error_array(lst, i);
 	}
-	else if (c == 'b')
-	{
-		current = stack->b->head;
-		while (current != NULL)
-		{
-			printf("%zd\n",current->value);
-			current = current->next;
-		}
-	}
+	return 1;
 }
 
 void exit_error_array(char **lst, size_t i)

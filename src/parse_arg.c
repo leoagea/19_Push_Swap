@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/03 18:32:54 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/04 18:14:03 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,8 @@ char **parse_arg(int ac, char **av, t_stack *stack)
 		len = d_array_len(lst);
 		while(++i < len)
 		{
-			while (lst[i][++j])
-				if (ft_isalpha((int)lst[i][j])) //check if alpha char and number > INT_MAX 
-					exit_error(stack,lst);
-			dll_insert_tail(ft_atoi(lst[i]),stack->a);
+			if(check_error_arg(lst, i))
+				dll_insert_tail(ft_atoi(lst[i]),stack->a);
 			free(lst[i]);
 		}
 		free(lst);
