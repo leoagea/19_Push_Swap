@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 18:14:03 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/04 20:44:16 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,23 @@ size_t d_array_len (char **lst)
 	}
 	return len;
 }
+char **parse_mul_arg(int ac, char **av, t_stack *stack)
+{
+	size_t i;
+	char ** lst;
 
-char **parse_arg(int ac, char **av, t_stack *stack)
+	i = 1;
+	while (i < ac)
+	{
+		if(check_quote_arg(lst, i))
+			dll_insert_tail(ft_atoi(lst[i]),stack->a); //change atoi pour qu il renvoie un long
+		i++;
+	}
+	stack_print_forward(stack, 'a');
+	return lst;
+}
+
+char **parse_solo_arg(char **av, t_stack *stack)
 {
 	size_t i;
 	size_t j;
@@ -39,18 +54,16 @@ char **parse_arg(int ac, char **av, t_stack *stack)
 	
 	i = -1;
 	j = -1;
-	if (ac == 2)
+	lst = ft_split(av[1],' ');
+	len = d_array_len(lst);
+	while(++i < len)
 	{
-		lst = ft_split(av[1],' ');
-		len = d_array_len(lst);
-		while(++i < len)
-		{
-			if(check_error_arg(lst, i))
-				dll_insert_tail(ft_atoi(lst[i]),stack->a);
-			free(lst[i]);
-		}
-		free(lst);
+		if(check_error_arg(lst, i))
+			dll_insert_tail(ft_atoi(lst[i]),stack->a);
+		free(lst[i]);
 	}
+	free(lst);
 	stack_print_forward(stack, 'a');
 	return lst;
 }
+
