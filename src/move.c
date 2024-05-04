@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 20:55:32 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/04 20:56:41 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,17 @@ void move_sa(t_stack *stack)
 	temp = dll_new_node(stack->a->head->value);
 	stack->a->head->value = stack->a->head->next->value;
 	stack->a->head->next->value = temp->value;
+	free(temp);
+}
+
+void move_sb(t_stack *stack)
+{
+	t_node *temp;
+
+	if (dll_size(stack->b) <= 2)
+		return ;
+	temp = dll_new_node(stack->b->head->value);
+	stack->b->head->value = stack->b->head->next->value;
+	stack->b->head->next->value = temp->value;
 	free(temp);
 }
