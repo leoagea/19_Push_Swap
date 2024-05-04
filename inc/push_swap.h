@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 18:40:45 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/04 20:51:07 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ typedef struct s_stack
 
 /*---------------------Parse_Arg---------------------*/
 
-char				**parse_arg(int ac, char **av, t_stack *stack);
+char **parse_mul_arg(int ac, char **av, t_stack *stack);
+char **parse_solo_arg(char **av, t_stack *stack);
 size_t				d_array_len(char **lst);
 
 /* --------------------Init_Stack--------------------*/
@@ -46,10 +47,15 @@ size_t				d_array_len(char **lst);
 t_stack				*stack_init(void);
 void				stack_print_forward(t_stack *stack, char c);
 
-/* -------------------Check_error------------------*/
+/* -------------------Check_error--------------------*/
 
-void				exit_error_array(char **lst, size_t i);
-void				exit_error(t_stack *stack, char **lst, size_t i);
-size_t				check_error_arg(char **lst, size_t i);
+size_t check_error_arg(char **lst, size_t i);
+void exit_error_array(char **lst, size_t i);
+void exit_error(t_stack *stack, char **lst, size_t i);
+size_t check_quote_arg(char **av, size_t i);
+
+/* ----------------------Move-----------------------*/
+
+void move_sa(t_stack *stack);
 
 #endif
