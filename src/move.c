@@ -6,14 +6,14 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:04:02 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 00:48:46 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 #include "../inc/push_swap.h"
 
-void move_sa(t_stack *stack)
+void swap_a(t_stack *stack)
 {
 	t_node *temp;
 
@@ -25,7 +25,7 @@ void move_sa(t_stack *stack)
 	free(temp);
 }
 
-void move_sb(t_stack *stack)
+void swap_b(t_stack *stack)
 {
 	t_node *temp;
 
@@ -37,7 +37,7 @@ void move_sb(t_stack *stack)
 	free(temp);
 }
 
-void move_ss(t_stack *stack)
+void swap_ss(t_stack *stack)
 {
 	if (dll_size(stack->a) <= 2 || dll_size(stack->b) <= 2)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:47:18 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 00:48:34 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ size_t check_quote_arg(char **av, size_t i);
 
 /* ----------------------Move-----------------------*/
 
-void move_sa(t_stack *stack);
-void move_sb(t_stack *stack);
-void move_ss(t_stack *stack);
+void swap_a(t_stack *stack);
+void swap_b(t_stack *stack);
+void swap_ss(t_stack *stack);
 void push_a(t_stack *stack);
 void push_b(t_stack *stack);
 
