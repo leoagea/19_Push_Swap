@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
+/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 20:56:41 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/05 23:41:33 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,12 @@ void move_sb(t_stack *stack)
 	stack->b->head->value = stack->b->head->next->value;
 	stack->b->head->next->value = temp->value;
 	free(temp);
+}
+
+void move_ss(t_stack *stack)
+{
+	if (dll_size(stack->a) <= 2 || dll_size(stack->b) <= 2)
+		return ;
+	move_sa(stack);
+	move_sb(stack);
 }
