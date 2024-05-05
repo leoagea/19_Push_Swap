@@ -6,7 +6,7 @@
 #    By: lagea < lagea@student.s19.be >             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/01 16:07:15 by lagea             #+#    #+#              #
-#    Updated: 2024/05/06 00:31:38 by lagea            ###   ########.fr        #
+#    Updated: 2024/05/06 01:18:38 by lagea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,15 @@ CC = gcc
 RM	= rm -rf
 CFLAGS = -Wall -Wextra -Werror
 INCS = -I$(INC_DIR) -I.
+
+TOTAL_FILES 	:= $(words $(SRC))
+CURRENT_FILE 	:= 0
+
+define progress_bar_push_swap
+    @$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE) + 1))))
+    @printf "\r$(YELLOW)Compiling Push Swap... [%-$(TOTAL_FILES)s] %d/%d $(NC)" $$(for i in $$(seq 1 $(CURRENT_FILE)); do printf "#"; done) $(CURRENT_FILE) $(TOTAL_FILES)
+	@if [ $(CURRENT_FILE) -eq $(TOTAL_FILES) ]; then echo ""; fi
+endef
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)

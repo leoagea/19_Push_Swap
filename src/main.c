@@ -6,16 +6,12 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 01:01:10 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 01:15:37 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/libft.h"
-#include "inc/push_swap.h"
-// int main(int ac, char **av)
-// {
-	
-// }
+#include "../inc/push_swap.h"
+#include "../inc/libft.h"
 
 int main(int ac, char **av) 
 {
