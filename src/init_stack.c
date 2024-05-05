@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
+/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 21:09:53 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/05 23:26:44 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,31 +51,23 @@ void stack_print_forward(t_stack *stack,char c)
 	}
 }
 
-void stack_cpy_a_to_b(t_stack *stack)
+struct dll_edge* stack_cpy(t_stack *stack)
 {
-
-	// Segfault a corriger
+	//leaks a tester
 	
-	ssize_t cpy_value;
-	t_node *current_a;
-	t_node *current_b;
-	
+	struct dll_edge* cpy_dll = (struct dll_edge*)malloc(sizeof(struct dll_edge));
+    if (cpy_dll == NULL)
+        exit(1);
+    cpy_dll->head = NULL;
+    cpy_dll->tail = NULL;
 
-	current_a = stack->a->head;
-	current_b = stack->b->head;
-	while (current_a != NULL)
+    t_node* current = stack->a->head;
+    while (current != NULL) 
 	{
-		printf("test 1\n");
-		cpy_value = current_a->value;
-		printf("print value : %zd\n",cpy_value);
-		current_b->value = cpy_value;
-		printf("test 2\n");
-		current_a = current_a->next;
-		current_b = current_b->next;
-	}
-	printf("test 2\n");
+        dll_insert_tail(current->value,cpy_dll);
+        current = current->next;
+    }
 
-	// free(current_a);
-	// free(current_b);
+    return cpy_dll;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
+/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 21:05:10 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/05 23:27:06 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int main(int ac, char **av)
         parse_mul_arg(ac,av, stack);
     }
     printf("\nStack B\n");
-    stack_cpy_a_to_b(stack);
+    stack->b = stack_cpy(stack);
     dll_print_forward(stack->b);
     dll_clear(stack->a);
     dll_clear(stack->b);
 
     // ft_split(av[1], ' ');
-    // system("leaks a.out");
+    system("leaks a.out");
     return 0; 
 }
 
