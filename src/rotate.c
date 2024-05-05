@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:37:33 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:40:07 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 00:43:39 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,13 @@ void rotate_a(t_stack *stack)
     temp = stack->a->head->value;
     dll_delete_head(stack->a);
     dll_insert_tail(temp,stack->a);
+}
+
+void rotate_b(t_stack *stack)
+{
+    ssize_t temp;
+
+    temp = stack->b->head->value;
+    dll_delete_head(stack->b);
+    dll_insert_tail(temp,stack->b);
 }
