@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/05 23:27:06 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 01:01:10 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,29 @@ int main(int ac, char **av)
     {
         parse_mul_arg(ac,av, stack);
     }
-    printf("\nStack B\n");
-    stack->b = stack_cpy(stack);
-    dll_print_forward(stack->b);
+    printf("Stack a avant\n");
+    dll_print_forward(stack->a);
+    swap_a(stack);
+    push_b(stack);
+    push_b(stack);
+    push_b(stack);
+    rotate_rr(stack);
+    reverse_rotate_rr(stack);
+    swap_a(stack);
+    push_a(stack);
+    push_a(stack);
+    push_a(stack);
+    printf("Stack a avant\n");
+    dll_print_forward(stack->a);
+    // stack->b = stack_cpy(stack);
+    // dll_delete_head(stack->b);
+    // printf("Stack b avant\n");
+    // dll_print_forward(stack->b);
+    // reverse_rotate_b(stack);
+    // printf("Stack b apres\n");
+    // dll_print_forward(stack->b);
+    // printf("Stack b\n");
+    // dll_print_forward(stack->b);
     dll_clear(stack->a);
     dll_clear(stack->b);
 
