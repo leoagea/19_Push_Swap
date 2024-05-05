@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/05 23:27:00 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/05 23:35:46 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ size_t				d_array_len(char **lst);
 
 t_stack				*stack_init(void);
 void				stack_print_forward(t_stack *stack, char c);
+void print_2_stack(t_stack *stack);
 struct dll_edge* stack_cpy(t_stack *stack);
 
 /* -------------------Check_error--------------------*/
