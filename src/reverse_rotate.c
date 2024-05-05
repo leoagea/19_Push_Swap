@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:50:04 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:54:24 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 00:56:44 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,8 @@ void reverse_rotate_b(t_stack *stack)
     dll_insert_head(temp,stack->b);
 }
 
+void reverse_rotate_rr(t_stack *stack)
+{
+    reverse_rotate_a(stack);
+    reverse_rotate_b(stack);
+}
