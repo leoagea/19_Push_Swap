@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/05 23:53:38 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 00:04:02 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,15 @@ void push_a(t_stack *stack)
 	temp = stack->b->head;
 	dll_insert_head(temp->value,stack->a);
 	stack->b->head = temp->next;
+}
+
+void push_b(t_stack *stack)
+{
+	t_node *temp;
+	
+	if(dll_size(stack->a) == 0)
+		return ;
+	temp = stack->a->head;
+	dll_insert_head(temp->value,stack->b);
+	stack->a->head = temp->next;
 }
