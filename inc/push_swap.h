@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:51:45 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 00:54:34 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void rotate_rr(t_stack *stack);
 /* ---------------------Rotate----------------------*/
 
 void reverse_rotate_a(t_stack *stack);
+void reverse_rotate_b(t_stack *stack);
 
 #endif
