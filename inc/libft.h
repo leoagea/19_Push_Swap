@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:31:16 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 12:37:08 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ int					ft_printf(const char *s, ...);
 /*------------------------------ADDED FUNCTIONS-----+--------------------------*/
 
 void				ft_putunbr_fd(unsigned int n, int fd);
+long				ft_atol(const char *str);
 
 /*---------------------------DOUBLE LIMKED LIST-------------------------------*/
 

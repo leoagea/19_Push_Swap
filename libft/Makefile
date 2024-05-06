@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lagea < lagea@student.s19.be >             +#+  +:+       +#+         #
+#    By: lagea <lagea@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/01 16:07:15 by lagea             #+#    #+#              #
-#    Updated: 2024/05/06 01:24:37 by lagea            ###   ########.fr        #
+#    Updated: 2024/05/06 12:37:33 by lagea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC = src/ft_atoi.c src/ft_bzero.c src/ft_calloc.c src/ft_isalnum.c src/ft_isalp
 		src/ft_lstlast_bonus.c src/ft_lstclear_bonus.c src/ft_lstdelone_bonus.c \
 		src/ft_lstmap_bonus.c src/ft_lstsize_bonus.c src/ft_lstiter_bonus.c \
 		src/printf.c src/parse.c src/print_elements.c \
-		src/print_elements_2.c src/utils_len.c src/ft_putunbr_fd.c \
+		src/print_elements_2.c src/utils_len.c src/ft_putunbr_fd.c src/ft_atol.c \
 		src/dll_insert_head.c src/dll_insert_tail.c src/dll_new_node.c \
 		src/dll_print_forward.c src/dll_init.c src/dll_size.c src/dll_clear.c \
 		src/dll_delete_head.c src/dll_delete_tail.c
@@ -53,7 +53,7 @@ CURRENT_FILE 	:= 0
 
 define progress_bar_push_swap
     @$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE) + 1))))
-    @printf "\r$(YELLOW)Compiling Push Swap... [%-$(TOTAL_FILES)s] %d/%d $(NC)" $$(for i in $$(seq 1 $(CURRENT_FILE)); do printf "#"; done) $(CURRENT_FILE) $(TOTAL_FILES)
+    @printf "\r$(YELLOW)Compiling Libft... [%-$(TOTAL_FILES)s] %d/%d $(NC)" $$(for i in $$(seq 1 $(CURRENT_FILE)); do printf "#"; done) $(CURRENT_FILE) $(TOTAL_FILES)
 	@if [ $(CURRENT_FILE) -eq $(TOTAL_FILES) ]; then echo ""; fi
 endef
 
