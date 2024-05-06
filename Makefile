@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lagea < lagea@student.s19.be >             +#+  +:+       +#+         #
+#    By: lagea <lagea@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/06 01:08:23 by lagea             #+#    #+#              #
-#    Updated: 2024/05/06 01:21:57 by lagea            ###   ########.fr        #
+#    Updated: 2024/05/06 14:14:34 by lagea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC_DIR		= src/
 OBJ_DIR		= obj/
 INC_DIR		= inc/
 
-SRC 		= $(wildcard $(SRC_DIR)*.c) $(wildcard $(SRC_DIR)*.c)
+SRC 		= $(wildcard $(SRC_DIR)*.c)  
 OBJ			= $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
 LIBFT 		= lib/libft.a
