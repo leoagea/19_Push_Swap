@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/05 23:58:19 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 16:58:53 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ t_stack *stack_init()
 	stack->a = edge_a;
 	stack->b = edge_b;
 	return(stack);
+}
+
+void index_init(t_stack *stack)
+{
+	int index;
+	t_node *current;
+
+	index = 1;
+	current = stack->a->head;
+	while (current != NULL)
+	{
+		current->index = index++;
+		current = current->next;
+	}
 }
 
 void stack_print_forward(t_stack *stack,char c)
@@ -67,23 +81,5 @@ void print_2_stack(t_stack *stack)
 	}
 }
 
-struct dll_edge* stack_cpy(t_stack *stack)
-{
-	//leaks a tester
-	
-	struct dll_edge* cpy_dll = (struct dll_edge*)malloc(sizeof(struct dll_edge));
-    if (cpy_dll == NULL)
-        exit(1);
-    cpy_dll->head = NULL;
-    cpy_dll->tail = NULL;
 
-    t_node* current = stack->a->head;
-    while (current != NULL) 
-	{
-        dll_insert_tail(current->value,cpy_dll);
-        current = current->next;
-    }
-
-    return cpy_dll;
-}
 
