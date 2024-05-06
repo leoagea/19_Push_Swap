@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 17:01:16 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 17:16:11 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@
 typedef struct s_node
 {
 	int				cost;
-	int index;  // index in the stack
-	int median;
-		// pour savoir si on est dans la partie haute ou basse de ta stack
+	int 			index;  // index in the stack
+	int 			median; // pour savoir si on est dans la partie haute ou basse de ta stack
 	ssize_t			value;
 	struct s_node	*prev;
 	struct s_node	*next;
@@ -49,7 +48,8 @@ size_t				d_array_len(char **lst);
 /*--------------------Init_Stack--------------------*/
 
 t_stack				*stack_init(void);
-void				index_init(t_stack *stack);
+void 				index_init(struct dll_edge *edge);
+void 				index_init_stack(t_stack *stack);
 void				stack_print_forward(t_stack *stack, char c);
 void				print_2_stack(t_stack *stack);
 // struct dll_edge* stack_cpy(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 16:58:53 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 17:15:45 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,34 @@ t_stack *stack_init()
 	return(stack);
 }
 
-void index_init(t_stack *stack)
+void index_init(struct dll_edge *edge)
+{
+	int index;
+	t_node *current;
+
+	index = 1;
+	current = edge->head;
+	while (current != NULL)
+	{
+		current->index = index++;
+		current = current->next;
+	}
+}
+
+void index_init_stack(t_stack *stack)
 {
 	int index;
 	t_node *current;
 
 	index = 1;
 	current = stack->a->head;
+	while (current != NULL)
+	{
+		current->index = index++;
+		current = current->next;
+	}
+	index = 1;
+	current = stack->b->head;
 	while (current != NULL)
 	{
 		current->index = index++;
