@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/04 20:43:27 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 12:38:39 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t check_error_arg(char **lst, size_t i)
 			if (!ft_isdigit((int)lst [i][j]))
 				exit_error_array(lst, i);
 		}
-		if (ft_atoi(lst [i]) > INT_MAX)
+		if (ft_atol(lst [i]) > INT_MAX)
 				exit_error_array(lst, i);
 	}
 	return 1;

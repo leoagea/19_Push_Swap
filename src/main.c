@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 01:15:37 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 17:44:05 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,30 @@ int main(int ac, char **av)
     {
         parse_mul_arg(ac,av, stack);
     }
+    index_init(stack->a);
     printf("Stack a avant\n");
     dll_print_forward(stack->a);
-    swap_a(stack);
+    // swap_a(stack);
     push_b(stack);
-    push_b(stack);
-    push_b(stack);
-    rotate_rr(stack);
-    reverse_rotate_rr(stack);
-    swap_a(stack);
-    push_a(stack);
-    push_a(stack);
-    push_a(stack);
-    printf("Stack a avant\n");
+    // push_b(stack);
+    // push_b(stack);
+    // rotate_rr(stack);
+    // reverse_rotate_rr(stack);
+    // swap_a(stack);
+    // push_a(stack);
+    // push_a(stack);
+    // push_a(stack);
+    printf("\nStack a\n");
+    // index_init(stack->a);
     dll_print_forward(stack->a);
-    // stack->b = stack_cpy(stack);
-    // dll_delete_head(stack->b);
-    // printf("Stack b avant\n");
-    // dll_print_forward(stack->b);
-    // reverse_rotate_b(stack);
-    // printf("Stack b apres\n");
-    // dll_print_forward(stack->b);
-    // printf("Stack b\n");
-    // dll_print_forward(stack->b);
+    printf("\nStack b\n");
+    // index_init(stack->b);
+    dll_print_forward(stack->b);
     dll_clear(stack->a);
     dll_clear(stack->b);
 
     // ft_split(av[1], ' ');
-    system("leaks a.out");
+    system("leaks push_swap");
     return 0; 
 }
 
