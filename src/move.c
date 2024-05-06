@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:53:06 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 14:17:32 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void push_a(t_stack *stack)
 	temp = stack->b->head;
 	dll_insert_head(temp->value,stack->a);
 	stack->b->head = temp->next;
+	free(temp);
 }
 
 void push_b(t_stack *stack)
@@ -65,4 +66,5 @@ void push_b(t_stack *stack)
 	temp = stack->a->head;
 	dll_insert_head(temp->value,stack->b);
 	stack->a->head = temp->next;
+	free(temp);
 }
