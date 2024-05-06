@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dll_delete_head.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:18:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:27:06 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 14:21:41 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void dll_delete_head(struct dll_edge *edge)
         return ;
     edge->head = temp->next;
     edge->head->prev = NULL;
+    free(temp);
 }

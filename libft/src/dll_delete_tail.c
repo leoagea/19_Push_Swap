@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dll_delete_tail.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:18:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:31:02 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 14:22:09 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void dll_delete_tail(struct dll_edge *edge)
         return ;
     edge->tail = temp->prev;
     edge->tail->next = NULL;
+    free(temp);
 }
