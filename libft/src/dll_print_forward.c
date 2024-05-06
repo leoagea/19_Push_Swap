@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:41:18 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 16:59:57 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/06 17:00:57 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void dll_print_forward(struct dll_edge *edge)
 	current = edge->head;
 	while (current != NULL)
 	{
-		printf("%zd\n",current->value);
+		printf("index %d : %zd\n",current->index,current->value);
 		current = current->next;
 	}
 }
