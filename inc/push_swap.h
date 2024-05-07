@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 15:09:52 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 17:58:50 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_node
 	int 			index;     // index in the stack
 	int 			median;	// pour savoir si on est dans la partie haute ou basse de ta stack
 	ssize_t			value;
-	// t_moves			*moves;
+	t_moves			*moves;
 	struct s_node	*prev;
 	struct s_node	*next;
 
@@ -69,7 +69,8 @@ void				print_2_stack(t_stack *stack);
 void find_median(struct dll_edge *a);
 void find_cost(t_stack *stack,t_node *node);
 void cost_stack(t_stack *stack);
-void find_min_cost(t_stack *stack);
+int find_min_cost(t_stack *stack);
+int find_closest(t_stack *stack,ssize_t value);
 
 // struct dll_edge* stack_cpy(t_stack *stack);
 // /*struct dll_edge**/void stack_cpy(t_stack *stack);
@@ -80,6 +81,11 @@ size_t				check_error_arg(char **lst, size_t i);
 void				exit_error_array(char **lst, size_t i);
 void				exit_error(t_stack *stack, char **lst, size_t i);
 size_t				check_quote_arg(char **av, size_t i);
+
+/*----------------------Sort-----------------------*/
+
+void sort_a(t_stack *stack);
+void sort_b(t_stack *stack);
 
 /*----------------------Move-----------------------*/
 
