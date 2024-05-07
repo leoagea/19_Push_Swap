@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:37:33 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 00:46:27 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 09:38:18 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void rotate_a(t_stack *stack)
     temp = stack->a->head->value;
     dll_delete_head(stack->a);
     dll_insert_tail(temp,stack->a);
+    index_init(stack->a);
 }
 
 void rotate_b(t_stack *stack)
@@ -29,6 +30,7 @@ void rotate_b(t_stack *stack)
     temp = stack->b->head->value;
     dll_delete_head(stack->b);
     dll_insert_tail(temp,stack->b);
+    index_init(stack->b);
 }
 
 void rotate_rr(t_stack *stack)
