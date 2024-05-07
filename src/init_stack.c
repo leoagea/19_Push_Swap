@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 15:09:44 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 18:02:54 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,9 @@ void find_cost(t_stack *stack,t_node *node)
 		node->cost = dll_len - node->index + 1;
 	}
 	if(node->value > stack->b->tail->value + 1)
+	{
 		node->cost += 1;
+	}
 	node->cost += 1;
 }
 
@@ -152,17 +154,48 @@ void cost_stack(t_stack *stack)
 	}
 }
 
-void find_min_cost(t_stack *stack)
+int find_min_cost(t_stack *stack)
 {
 	int min_cost;
 	t_node *current;
 
 	current = stack->a->head;
 	min_cost = current->cost;
+	current = current->next;
 	while (current != NULL)
 	{
-		if (current->cost > min_cost)
+		if (current->cost < min_cost)
 			min_cost = current->cost;
 		current = current->next;
 	}
+	current = stack->a->head;
+	while (current != NULL)
+	{
+		if (current->cost == min_cost)
+			return current->index;
+		current = current->next;
+	}
+	return current->index;
+}
+
+int find_closest(t_stack *stack,ssize_t value)
+{
+	t_node *current;
+	ssize_t closest;
+	int index;
+	
+	current = stack->b->head;
+	closest = current->value;
+	index = current->index;
+	current = current->next;
+	while(current != NULL)
+	{
+		if (closest < current->value && current->value < value)
+		{
+			closest = current->value;
+			index = current->index;
+		}
+		current = current->next;
+	}
+	return index;
 }
