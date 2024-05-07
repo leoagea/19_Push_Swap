@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 17:15:45 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 15:09:44 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,67 @@ void print_2_stack(t_stack *stack)
 	}
 }
 
+void find_median(struct dll_edge *a)
+{
+	int dll_len;
+	int median;
+	t_node *current;
+	
+	dll_len = dll_size(a);
+	if (dll_len % 2)
+		median = (dll_len / 2) + 1;
+	else
+		median = dll_len / 2;
+	current = a->head;
+	while (current != NULL)
+	{
+		current->median = median;
+		current = current->next;
+	}
+}
 
+void find_cost(t_stack *stack,t_node *node)
+{
+	int dll_len;
 
+	dll_len = dll_size(stack->a);
+	if (node->index <= node->median)
+	{
+		node->cost = node->index - 1;
+	}
+	else if(node->index > node->median)
+	{		
+		node->cost = dll_len - node->index + 1;
+	}
+	if(node->value > stack->b->tail->value + 1)
+		node->cost += 1;
+	node->cost += 1;
+}
+
+void cost_stack(t_stack *stack)
+{
+	t_node *current;
+	
+	find_median(stack->a);
+	current = stack->a->head;
+	while (current != NULL)
+	{
+		find_cost(stack, current);
+		current = current->next;
+	}
+}
+
+void find_min_cost(t_stack *stack)
+{
+	int min_cost;
+	t_node *current;
+
+	current = stack->a->head;
+	min_cost = current->cost;
+	while (current != NULL)
+	{
+		if (current->cost > min_cost)
+			min_cost = current->cost;
+		current = current->next;
+	}
+}
