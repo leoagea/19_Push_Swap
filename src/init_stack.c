@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 23:33:25 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 23:41:35 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,10 +130,6 @@ void find_cost(t_stack *stack,t_node *node)
 	else if(node->index > node->median)
 	{		
 		node->cost = dll_len - node->index + 1;
-	}
-	if(node->value > stack->b->tail->value + 1)
-	{
-		node->cost += 1;
 	}
 	node->cost += 1;
 }

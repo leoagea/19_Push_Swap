@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 23:32:52 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 23:39:37 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,16 @@ int main(int ac, char **av)
         sort_b(stack);
         push_b(stack);
     }
+
+    ////////////////////////////////*
+    /*
+        ajouter au cost 
+            le nombre de rotate ou reverse rotate necessaire pour 
+            push en haut du stack b
+            le smallest de chaque index du stack a
+            ex : 7 son smallest est 5 duoucp cost += 1
+    */
+    ////////////////////////////////   
 	// find_median(stack->a);
     // cost_stack(stack);
 
