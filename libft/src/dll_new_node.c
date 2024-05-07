@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 12:23:41 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 16:56:01 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 16:27:33 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,8 @@ t_node	*dll_new_node(ssize_t data)
 	new->value = data;
 	new->next = NULL;
 	new->prev = NULL;
+	new->cost = 0;
+	new->index = 0;
+	new->median = 0;
 	return (new);
 }
