@@ -6,7 +6,7 @@
 /*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 23:39:37 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 23:48:18 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,12 @@ int main(int ac, char **av)
             push en haut du stack b
             le smallest de chaque index du stack a
             ex : 7 son smallest est 5 duoucp cost += 1
+
+        ajouter une variable a la struct node pour le nombre de rotate
+        de b necessaire
+        pour povoir dans le sort faire si besoin des rotate r et rev rot r
+        si index retourne par smallest est < median rotate
+        si index retourne par smallest est > median rev rotate
     */
     ////////////////////////////////   
 	// find_median(stack->a);
