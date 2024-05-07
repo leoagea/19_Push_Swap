@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 17:44:05 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 09:40:30 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int ac, char **av)
     printf("Stack a avant\n");
     dll_print_forward(stack->a);
     // swap_a(stack);
-    push_b(stack);
+    // push_b(stack);
     // push_b(stack);
     // push_b(stack);
     // rotate_rr(stack);
@@ -41,7 +41,7 @@ int main(int ac, char **av)
     // push_a(stack);
     // push_a(stack);
     printf("\nStack a\n");
-    // index_init(stack->a);
+    index_init(stack->a);
     dll_print_forward(stack->a);
     printf("\nStack b\n");
     // index_init(stack->b);
