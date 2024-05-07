@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
+/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 18:02:54 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 23:33:25 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,7 @@ void find_median(struct dll_edge *a)
 	t_node *current;
 	
 	dll_len = dll_size(a);
-	if (dll_len % 2)
-		median = (dll_len / 2) + 1;
-	else
-		median = dll_len / 2;
+	median = (dll_len / 2) + 1;
 	current = a->head;
 	while (current != NULL)
 	{
@@ -178,22 +175,24 @@ int find_min_cost(t_stack *stack)
 	return current->index;
 }
 
-int find_closest(t_stack *stack,ssize_t value)
+int find_closest(t_stack *stack,int value)
 {
 	t_node *current;
-	ssize_t closest;
+	int closest;
 	int index;
 	
 	current = stack->b->head;
-	closest = current->value;
-	index = current->index;
-	current = current->next;
+	closest = -1;
+	index = 0;
 	while(current != NULL)
 	{
-		if (closest < current->value && current->value < value)
+		if (current->value < value)
 		{
-			closest = current->value;
-			index = current->index;
+			if (closest == -1 || current->value > closest)
+			{
+				closest = current->value;
+				index = current->index;
+			}
 		}
 		current = current->next;
 	}

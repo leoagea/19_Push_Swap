@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
+/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 18:17:13 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 23:32:52 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main(int ac, char **av)
     while (dll_size(stack->a) != 2)
     {
         find_median(stack->a);
+        find_median(stack->b);
         cost_stack(stack);
         printf("\nStack a\n");
         index_init(stack->a);
@@ -71,7 +72,21 @@ int main(int ac, char **av)
     return 0; 
 }
 
+// int main(void)
+// {
+//     t_stack *stack;
 
+//     stack = stack_init();
+//     dll_insert_tail(6,stack->b);
+//     dll_insert_tail(5,stack->b);
+//     dll_insert_tail(2,stack->b);
+//     dll_insert_tail(1,stack->b);
+//     dll_insert_tail(7,stack->b);
+//     index_init_stack(stack);
+//     dll_print_forward(stack->b);
+
+//     printf("\n%d\n",find_closest(stack,3));
+// }
 //echo $? pour check le code erreur
 
 
