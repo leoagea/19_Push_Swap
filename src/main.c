@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 09:40:30 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/07 18:17:13 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int main(int ac, char **av) 
 {
     t_stack *stack;
+    int dll_len;
     
     int i = 0;
     stack = stack_init();
@@ -27,30 +28,46 @@ int main(int ac, char **av)
     {
         parse_mul_arg(ac,av, stack);
     }
-    index_init(stack->a);
-    printf("Stack a avant\n");
-    dll_print_forward(stack->a);
     // swap_a(stack);
-    // push_b(stack);
-    // push_b(stack);
-    // push_b(stack);
-    // rotate_rr(stack);
-    // reverse_rotate_rr(stack);
-    // swap_a(stack);
-    // push_a(stack);
-    // push_a(stack);
-    // push_a(stack);
-    printf("\nStack a\n");
-    index_init(stack->a);
-    dll_print_forward(stack->a);
-    printf("\nStack b\n");
+    push_b(stack);
+    push_b(stack);
+    
+    dll_len = dll_size(stack->a);
+    while (dll_size(stack->a) != 2)
+    {
+        find_median(stack->a);
+        cost_stack(stack);
+        printf("\nStack a\n");
+        index_init(stack->a);
+        dll_print_forward(stack->a);
+        printf("\nStack b\n");
+        index_init(stack->b);
+        dll_print_forward(stack->b);
+        sort_a(stack);
+        sort_b(stack);
+        push_b(stack);
+    }
+	// find_median(stack->a);
+    // cost_stack(stack);
+
+    // index_init(stack->a);
+    // printf("Stack a avant\n");
+    // dll_print_forward(stack->a);
+    // find_median(stack->a);
+    // cost_stack(stack);
+    
+    // printf("\nStack a\n");
+    // index_init(stack->a);
+    // dll_print_forward(stack->a);
+    // printf("\nStack b\n");
     // index_init(stack->b);
-    dll_print_forward(stack->b);
+    // dll_print_forward(stack->b);
+    
     dll_clear(stack->a);
     dll_clear(stack->b);
 
     // ft_split(av[1], ' ');
-    system("leaks push_swap");
+    // system("leaks push_swap");
     return 0; 
 }
 
