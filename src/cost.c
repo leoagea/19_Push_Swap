@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/08 15:08:36 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/08 15:11:47 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,13 @@ t_node *find_closest(t_stack *stack,t_node *node)
 	return closest;
 }
 
-// void find_cost_stack(t_stack *stack, t_node node)
-// {
-// 	int temp;
-// 	int dll_len;
+void find_cost_stack(t_stack *stack, t_node *node)
+{
+	int temp;
+	int dll_len;
 	
-// 	temp += 0;
-// 	dll_len = dll_size(stack->a);
-// 	if (node->median)
-// 		temp = 
-// }
+	temp += 0;
+	dll_len = dll_size(stack->a);
+	if (node->median)
+		temp = dll_len - node->index;
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 23:48:18 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/08 15:29:12 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,22 @@ int main(int ac, char **av)
     push_b(stack);
     push_b(stack);
     
-    dll_len = dll_size(stack->a);
-    while (dll_size(stack->a) != 2)
-    {
-        find_median(stack->a);
-        find_median(stack->b);
-        cost_stack(stack);
-        printf("\nStack a\n");
-        index_init(stack->a);
-        dll_print_forward(stack->a);
-        printf("\nStack b\n");
-        index_init(stack->b);
-        dll_print_forward(stack->b);
-        sort_a(stack);
-        sort_b(stack);
-        push_b(stack);
-    }
+    // dll_len = dll_size(stack->a);
+    // while (dll_size(stack->a) != 2)
+    // {
+    //     find_median(stack->a);
+    //     find_median(stack->b);
+    //     cost_stack(stack);
+    //     printf("\nStack a\n");
+    //     index_init(stack->a);
+    //     dll_print_forward(stack->a);
+    //     printf("\nStack b\n");
+    //     index_init(stack->b);
+    //     dll_print_forward(stack->b);
+    //     sort_a(stack);
+    //     // sort_b(stack);
+    //     push_b(stack);
+    // }
 
     ////////////////////////////////*
     /*
@@ -64,22 +64,52 @@ int main(int ac, char **av)
         si index retourne par smallest est > median rev rotate
     */
     ////////////////////////////////   
-	// find_median(stack->a);
-    // cost_stack(stack);
-
-    // index_init(stack->a);
-    // printf("Stack a avant\n");
-    // dll_print_forward(stack->a);
-    // find_median(stack->a);
-    // cost_stack(stack);
+    rotate_b(stack);
+    push_b(stack);
+    // push_b(stack);
+    // rotate_b(stack);
+    // rotate_b(stack);
+    // push_b(stack);
     
+    
+    index_init_stack(stack);
+    find_median(stack->a);
+    find_median(stack->b);
+    // cost_stack(stack);
+    printf("\nStack a\n");
+    dll_print_forward(stack->a);
+    printf("\nStack b\n");
+    dll_print_forward(stack->b);
+
+
+    
+    // push_b(stack);
+
+    // index_init_stack(stack);
+    // find_median(stack->a);
+    // find_median(stack->b);
+    // cost_stack(stack);
     // printf("\nStack a\n");
-    // index_init(stack->a);
     // dll_print_forward(stack->a);
     // printf("\nStack b\n");
-    // index_init(stack->b);
     // dll_print_forward(stack->b);
-    
+
+    // printf("%d \n",find_closest(stack,6));
+    // printf("%d \n",find_closest(stack,3));
+    t_node *bigest = find_bigest_b(stack);
+    printf("biggest, index : %d, value : %zd\n",bigest->index, bigest->value);
+    t_node *smallest = find_smallest_b(stack);
+    printf("smallest, index : %d, value : %zd\n",smallest->index, smallest->value);
+    t_node *current = stack->a->head;
+    t_node *closest;
+    closest = find_closest(stack,current);
+    while (current != NULL)
+    {
+        closest = find_closest(stack,current);
+        printf("closest de %zd ; index : %d, value : %zd , median : %d\n",current->value,closest->index,closest->value,current->median);
+        current = current->next;
+    }
+
     dll_clear(stack->a);
     dll_clear(stack->b);
 

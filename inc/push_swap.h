@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/08 15:03:01 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/08 15:25:29 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ typedef struct s_node
 {
 	int				cost;
 	int 			index;     // index in the stack
-	bool 			median;	// pour savoir si on est dans la partie haute ou basse de ta stack
 	int				moves;
+	bool 			median;	// pour savoir si on est dans la partie haute ou basse de ta stack
 	ssize_t			value;
 	struct s_node	*prev;
 	struct s_node	*next;

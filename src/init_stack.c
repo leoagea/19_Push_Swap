@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/08 15:03:54 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/08 15:29:28 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,24 +103,29 @@ void print_2_stack(t_stack *stack)
 			current_b = current_b->next;
 	}
 }
-
-void find_median(struct dll_edge *a)
+// trouve la median de la stack et assigne 1 si above median
+// ou 0 si under median
+void find_median(struct dll_edge *stack)
 {
 	int dll_len;
-	int median;
+	int median_stack;
 	t_node *current;
 	
-	dll_len = dll_size(a);
-	median = (dll_len / 2) + 1;
-	current = a->head;
+	dll_len = dll_size(stack);
+	median_stack = (dll_len / 2) + 1;
+	current = stack->head;
 	while (current != NULL)
 	{
-		while (current->index <= median)
+		printf("median : %d, current index = %d ", median_stack, current->index);
+		if(current->index <= median_stack)
 		{
+			printf("test\n");
 			current->median = true;
-			current = current->next;
 		}
-		current->median = false;
+		else{
+			printf("test 1\n");
+			current->median = false;
+		}
 		current = current->next;
 	}
 }
