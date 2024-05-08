@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 23:41:35 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/08 15:03:54 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,10 @@ void print_2_stack(t_stack *stack)
 	while (current_a != NULL && current_b != NULL)
 	{
 		printf("%zd			%zd\n",current_a->value, current_b->value);
-		current_a = current_a->next;
-		current_b = current_b->next;
+		if (current_a != NULL)
+			current_a = current_a->next;
+		else if (current_b != NULL)
+			current_b = current_b->next;
 	}
 }
 
@@ -113,84 +115,157 @@ void find_median(struct dll_edge *a)
 	current = a->head;
 	while (current != NULL)
 	{
-		current->median = median;
-		current = current->next;
-	}
-}
-
-void find_cost(t_stack *stack,t_node *node)
-{
-	int dll_len;
-
-	dll_len = dll_size(stack->a);
-	if (node->index <= node->median)
-	{
-		node->cost = node->index - 1;
-	}
-	else if(node->index > node->median)
-	{		
-		node->cost = dll_len - node->index + 1;
-	}
-	node->cost += 1;
-}
-
-void cost_stack(t_stack *stack)
-{
-	t_node *current;
-	
-	find_median(stack->a);
-	current = stack->a->head;
-	while (current != NULL)
-	{
-		find_cost(stack, current);
-		current = current->next;
-	}
-}
-
-int find_min_cost(t_stack *stack)
-{
-	int min_cost;
-	t_node *current;
-
-	current = stack->a->head;
-	min_cost = current->cost;
-	current = current->next;
-	while (current != NULL)
-	{
-		if (current->cost < min_cost)
-			min_cost = current->cost;
-		current = current->next;
-	}
-	current = stack->a->head;
-	while (current != NULL)
-	{
-		if (current->cost == min_cost)
-			return current->index;
-		current = current->next;
-	}
-	return current->index;
-}
-
-int find_closest(t_stack *stack,int value)
-{
-	t_node *current;
-	int closest;
-	int index;
-	
-	current = stack->b->head;
-	closest = -1;
-	index = 0;
-	while(current != NULL)
-	{
-		if (current->value < value)
+		while (current->index <= median)
 		{
-			if (closest == -1 || current->value > closest)
-			{
-				closest = current->value;
-				index = current->index;
-			}
+			current->median = true;
+			current = current->next;
 		}
+		current->median = false;
 		current = current->next;
 	}
-	return index;
 }
+
+// int find_cost_b(t_stack *stack, t_node *node)
+// {
+// 	int index_clos;
+// 	int temp;
+	
+// 	temp = 0;
+// 	index_clos = find_closest(stack, node->value);
+// 	printf("index_clos : %d\n",index_clos);
+// 	if (index_clos == 1)
+// 		return 0;
+// 	// printf("value : %zd ,index closest : %d\n",node->value,index_clos);
+// 	if (index_clos > stack->b->head->median)
+// 		temp = dll_size(stack->b) + 1;
+// 	else if (index_clos <= stack->b->head->median)
+// 		temp = index_clos - 1;
+// 	printf("temp : %d\n",temp);
+// 	return temp;
+// }
+
+// void find_cost(t_stack *stack,t_node *node)
+// {
+// 	int dll_len;
+// 	int temp;
+	
+// 	temp = 0;
+// 	dll_len = dll_size(stack->a);
+// 	if (node->index <= node->median)
+// 	{
+// 		temp = node->index - 1;
+// 	}
+// 	else if(node->index > node->median)
+// 	{		
+// 		temp = dll_len - node->index + 1;
+// 	}
+// 	// printf("value : %zd, cost_b : %d\n",node->value,find_cost_b(stack,node));
+// 	temp += find_cost_b(stack,node);
+// 	temp += 1;
+// 	node->cost = temp;
+// }
+
+// void cost_stack(t_stack *stack)
+// {
+// 	t_node *current;
+	
+// 	find_median(stack->a);
+// 	current = stack->a->head;
+// 	while (current != NULL)
+// 	{
+// 		if (current->value < smallest_b(stack))
+// 		{
+// 			current->cost = 1;
+// 			current = current->next;
+// 		}
+// 		else
+// 		{
+// 			find_cost(stack, current);
+// 			current = current->next;
+// 		}
+// 	}
+// }
+
+// int find_min_cost(t_stack *stack)
+// {
+// 	int min_cost;
+// 	t_node *current;
+
+// 	current = stack->a->head;
+// 	min_cost = current->cost;
+// 	current = current->next;
+// 	while (current != NULL)
+// 	{
+// 		if (current->cost < min_cost)
+// 			min_cost = current->cost;
+// 		current = current->next;
+// 	}
+// 	current = stack->a->head;
+// 	while (current != NULL)
+// 	{
+// 		if (current->cost == min_cost)
+// 			return current->index;
+// 		current = current->next;
+// 	}
+// 	return current->index;
+// }
+
+// int find_closest(t_stack *stack,int value)
+// {
+// 	t_node *current;
+// 	int closest;
+// 	int index;
+	
+// 	current = stack->b->head;
+// 	closest = -1;
+// 	index = 0;
+// 	while(current != NULL)
+// 	{
+// 		if (current->value < value)
+// 		{
+// 			if (closest == -1 || current->value > closest)
+// 			{
+// 				closest = current->value;
+// 				index = current->index;
+// 			}
+// 		}
+// 		current = current->next;
+// 	}
+// 	return index;
+// }
+
+// int biggest_b(t_stack *stack)
+// {
+// 	int biggest_b;
+// 	t_node *current;
+
+// 	biggest_b = 0;
+// 	current = stack->b->head;
+// 	while (current != NULL)
+// 	{
+// 		if(biggest_b < current->value)
+// 			biggest_b = current->value;
+// 		current = current->next;
+// 	}	
+// 	return biggest_b;
+// }
+
+// int smallest_b(t_stack *stack)
+// {
+// 	int smallest_b;
+// 	t_node *current;
+
+// 	current = stack->b->head;
+// 	smallest_b = current->value;
+// 	while (current != NULL)
+// 	{
+// 		if(smallest_b < current->value)
+// 			current = current->next;
+// 		else
+// 		{
+// 			smallest_b = current->value;
+// 			current = current->next;
+// 		}
+// 	}	
+// 	return smallest_b;
+// }

@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/08 12:29:04 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/08 15:03:01 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include <limits.h> //Macro INT_MAX
 # include <stdio.h>  //printf
+# include <stdbool.h>
 
 typedef struct s_node
 {
 	int				cost;
 	int 			index;     // index in the stack
-	int 			median;	// pour savoir si on est dans la partie haute ou basse de ta stack
+	bool 			median;	// pour savoir si on est dans la partie haute ou basse de ta stack
 	int				moves;
 	ssize_t			value;
 	struct s_node	*prev;
@@ -60,7 +61,7 @@ int find_cost_b(t_stack *stack, t_node *node);
 void find_cost(t_stack *stack,t_node *node);
 void cost_stack(t_stack *stack);
 int find_min_cost(t_stack *stack);
-int find_closest(t_stack *stack,int value);
+// int find_closest(t_stack *stack,int value);
 
 // int biggest_b(t_stack *stack);
 // int smallest_b(t_stack *stack);
@@ -77,8 +78,9 @@ size_t				check_quote_arg(char **av, size_t i);
 
 /*----------------------Cost-----------------------*/
 
-t_node *bigest_b(t_stack *stack);
-t_node *smallest_b(t_stack *stack);
+t_node *find_bigest_b(t_stack *stack);
+t_node *find_smallest_b(t_stack *stack);
+t_node *find_closest(t_stack *stack,t_node *node);
 
 /*----------------------Sort-----------------------*/
 
