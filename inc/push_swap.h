@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/08 15:25:29 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/13 18:51:00 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void find_median(struct dll_edge *a);
 int find_cost_b(t_stack *stack, t_node *node);
 void find_cost(t_stack *stack,t_node *node);
 void cost_stack(t_stack *stack);
-int find_min_cost(t_stack *stack);
+// int find_min_cost(t_stack *stack);
 // int find_closest(t_stack *stack,int value);
 
 // int biggest_b(t_stack *stack);
@@ -81,11 +81,15 @@ size_t				check_quote_arg(char **av, size_t i);
 t_node *find_bigest_b(t_stack *stack);
 t_node *find_smallest_b(t_stack *stack);
 t_node *find_closest(t_stack *stack,t_node *node);
+void find_cost(t_stack *stack, t_node *current, t_node *closest);
+void find_cost_stack(t_stack *stack);
 
 /*----------------------Sort-----------------------*/
 
 void sort_a(t_stack *stack);
 void sort_b(t_stack *stack);
+t_node *find_min_cost(t_stack *stack);
+void sort(t_stack *stack, t_node *closest, t_node *min_cost);
 
 /*----------------------Move-----------------------*/
 

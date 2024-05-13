@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/08 15:29:28 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/13 14:35:39 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,14 +116,14 @@ void find_median(struct dll_edge *stack)
 	current = stack->head;
 	while (current != NULL)
 	{
-		printf("median : %d, current index = %d ", median_stack, current->index);
+		// printf("median : %d, current index = %d ", median_stack, current->index);
 		if(current->index <= median_stack)
 		{
-			printf("test\n");
+			// printf("test\n");
 			current->median = true;
 		}
 		else{
-			printf("test 1\n");
+			// printf("test 1\n");
 			current->median = false;
 		}
 		current = current->next;
