@@ -6,21 +6,12 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/08 15:11:47 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/13 15:14:12 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 #include "../inc/libft.h"
-
-void find_cost_a(t_stack *stack, t_node *node)
-{
-	int cost_a;
-	t_node current;
-	
-	if(node->index < node->median){}
-	
-}
 
 t_node *find_bigest_b(t_stack *stack)
 {
@@ -93,13 +84,22 @@ t_node *find_closest(t_stack *stack,t_node *node)
 	return closest;
 }
 
-void find_cost_stack(t_stack *stack, t_node *node)
+void find_cost_stack(t_stack *stack, t_node *current, t_node *closest)
 {
 	int temp;
 	int dll_len;
 	
 	temp += 0;
 	dll_len = dll_size(stack->a);
-	if (node->median)
-		temp = dll_len - node->index;
+	if (current->median)
+		temp = current->index - 1;
+	else 
+		temp = dll_len - current->index + 1;
+	dll_len = dll_size(stack->b);
+	if (closest->median)
+		temp += closest->index - 1;
+	else 
+		temp += dll_len - closest->index + 1;
+	// printf("temp : %d\n",temp);
+	current->cost = temp;
 }
