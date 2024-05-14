@@ -6,38 +6,38 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:37:33 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/14 18:36:37 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/14 18:49:30 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
 #include "../inc/libft.h"
+#include "../inc/push_swap.h"
 
-void rotate_a(t_stack *stack)
+void	rotate_a(t_stack *stack)
 {
-    ssize_t temp;
+	ssize_t	temp;
 
-    temp = stack->a->head->value;
-    dll_delete_head(stack->a);
-    dll_insert_tail(temp,stack->a);
-    index_init(stack->a);
-	write(1, "ra\n",3);
+	temp = stack->a->head->value;
+	dll_delete_head(stack->a);
+	dll_insert_tail(temp, stack->a);
+	index_init(stack->a);
+	write(1, "ra\n", 3);
 }
 
-void rotate_b(t_stack *stack)
+void	rotate_b(t_stack *stack)
 {
-    ssize_t temp;
+	ssize_t	temp;
 
-    temp = stack->b->head->value;
-    dll_delete_head(stack->b);
-    dll_insert_tail(temp,stack->b);
-	write(1, "rb\n",3);
-    index_init(stack->b);
+	temp = stack->b->head->value;
+	dll_delete_head(stack->b);
+	dll_insert_tail(temp, stack->b);
+	write(1, "rb\n", 3);
+	index_init(stack->b);
 }
 
-void rotate_rr(t_stack *stack)
+void	rotate_rr(t_stack *stack)
 {
-    rotate_a(stack);
-    rotate_b(stack);
-	write(1, "rr\n",3);
+	rotate_a(stack);
+	rotate_b(stack);
+	write(1, "rr\n", 3);
 }
