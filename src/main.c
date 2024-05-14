@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/14 18:27:56 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/14 18:33:18 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,23 @@ int main(int ac, char **av)
     index_init_stack(stack);
     find_median(stack->a);
     find_median(stack->b);
-    printf("\nStack a\n");
-    dll_print_forward(stack->a);
-    printf("\nStack b\n");
-    dll_print_forward(stack->b);
-    printf("\n\n\n");
+    // printf("\nStack a\n");
+    // dll_print_forward(stack->a);
+    // printf("\nStack b\n");
+    // dll_print_forward(stack->b);
+    // printf("\n\n\n");
     
     push_swap(stack);
 
     index_init_stack(stack);
-    printf("\nStack a\n");
-    dll_print_forward(stack->a);
-    printf("\nStack b\n");
-    dll_print_forward(stack->b);
-    printf("\n\n\n");
+    // printf("\nStack a\n");
+    // dll_print_forward(stack->a);
+    // printf("\nStack b\n");
+    // dll_print_forward(stack->b);
+    // printf("\n\n\n");
 
-    if (is_sort(stack))
-        printf("Stack sorted\n");
+    // if (is_sort(stack))
+    //     printf("Stack sorted\n");
 
     dll_clear(stack->a);
     dll_clear(stack->b);

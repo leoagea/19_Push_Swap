@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/14 18:18:53 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/14 18:33:44 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,36 +169,36 @@ void sort_three_elements(t_stack *stack)
 	
 	if (is_sort(stack))
 	{
-		printf("Is already sorted\n");
+		// printf("Is already sorted\n");
 		return ;}
 	biggest = find_biggest_a(stack);
 	smallest = find_smallest_a(stack);
-	printf("Biggest stack a : %zu\n", biggest->value);
-	printf("Smallest stack a : %zd\n", smallest->value);
+	// printf("Biggest stack a : %zu\n", biggest->value);
+	// printf("Smallest stack a : %zd\n", smallest->value);
 	if (smallest->index == 2 && biggest->index == 3)
 	{
-		printf("Test 1\n");
+		// printf("Test 1\n");
 		swap_a(stack);
 	}
 	else if (smallest->index == 2 && biggest->index == 1){
-		printf("Test 2\n");
+		// printf("Test 2\n");
 		rotate_a(stack);}
 	else if (smallest->index == 3 && biggest->index == 2){
-		printf("Test 3\n");
+		// printf("Test 3\n");
 		reverse_rotate_a(stack);}
 	else if (smallest->index == 1 && biggest->index == 2)
 	{
-		printf("Test 4\n");
+		// printf("Test 4\n");
 		reverse_rotate_a(stack);
 		swap_a(stack);
 	}
 	else if (smallest->index == 3 && biggest->index == 1)
 	{
-		printf("Test 4\n");
+		// printf("Test 4\n");
 		rotate_a(stack);
 		swap_a(stack);
 	}
-	printf("Test\n");
+	// printf("Test\n");
 }
 
 bool is_sort(t_stack *stack)
@@ -253,17 +253,17 @@ void final_sort(t_stack *stack)
 	head_a = stack->a->head;
 	head_b = stack->b->head;
 	target = find_target_pushback(stack,stack->b->head);
-	printf("closest de %zd : %zd\n",stack->b->head->value,target->value);
+	// printf("closest de %zd : %zd\n",stack->b->head->value,target->value);
 	if (target == stack->a->tail){
-		printf("test if\n");
+		// printf("test if\n");
 		push_a(stack);
 	}
 	else
 	{
-		printf("test else\n");
+		// printf("test else\n");
 		while (stack->a->tail != target)
 		{	
-			printf("test 10\n");
+			// printf("test 10\n");
 			reverse_rotate_a(stack);
 		}
 		push_a(stack);

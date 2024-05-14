@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 17:43:59 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/14 18:31:55 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void swap_a(t_stack *stack)
 	stack->a->head->next->value = temp->value;
 	index_init(stack->a);
 	free(temp);
+	
 }
 
 void swap_b(t_stack *stack)

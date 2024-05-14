@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 12:38:39 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/14 18:32:36 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ size_t check_quote_arg(char **av, size_t i)
 {
 	char **lst;
 
-	printf("test\n");
-	printf("i : %zu\n",i);
+	// printf("test\n");
+	// printf("i : %zu\n",i);
 	lst = ft_split(av[i], ' '); /// segfault check
-	printf("test\n");
+	// printf("test\n");
 	if (d_array_len(lst) > 1)
 	{
 		write(2, "Error Parsing\n", 14);
