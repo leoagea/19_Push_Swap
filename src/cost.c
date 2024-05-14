@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/13 18:50:49 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/14 14:31:31 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,22 +84,42 @@ t_node *find_closest(t_stack *stack,t_node *node)
 	return closest;
 }
 
+int cost_calcul(int temp_a, int temp_b, int temp_c, int temp_d)
+{
+	int temp;
+
+	temp = 0;
+	if (temp_a != 0 && temp_c != 0)
+		temp += temp_a + (temp_a - temp_c);
+	if (temp_b != 0 && temp_d != 0)
+		temp += temp_b + (temp_b - temp_d);
+	return temp;
+}
+
 void find_cost(t_stack *stack, t_node *current, t_node *closest)
 {
 	int temp;
-	int dll_len;
+	int temp_a;
+	int temp_b;
+	int temp_c;
+	int temp_d;
 	
-	temp += 0;
+	int dll_len;
+	temp_a = 0;
+	temp_b = 0;
+	temp_c = 0;
+	temp_d = 0;
 	dll_len = dll_size(stack->a);
 	if (current->median)
-		temp = current->index - 1;
+		temp_a = current->index - 1;
 	else 
-		temp = dll_len - current->index + 1;
+		temp_b = dll_len - current->index + 1;
 	dll_len = dll_size(stack->b);
 	if (closest->median)
-		temp += closest->index - 1;
+		temp_c = closest->index - 1;
 	else 
-		temp += dll_len - closest->index + 1;
+		temp_d += dll_len - closest->index + 1;
+	temp = cost_calcul(temp_a,temp_b,temp_c,temp_d);
 	// printf("temp : %d\n",temp);
 	current->cost = temp;
 }
