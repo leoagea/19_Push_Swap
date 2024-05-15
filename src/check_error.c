@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/14 18:48:36 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/15 15:13:39 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ size_t	check_error_arg(char **lst, size_t i)
 	j = -1;
 	while (lst[++i])
 	{
-		while (lst[i][++j])
-		{
-			if (!ft_isdigit((int)lst[i][j]))
-				exit_error_array(lst, i);
-		}
 		if (ft_atol(lst[i]) > INT_MAX)
 			exit_error_array(lst, i);
 	}
@@ -70,4 +65,30 @@ size_t	check_quote_arg(char **av, size_t i)
 		exit(EXIT_FAILURE);
 	}
 	return (1);
+}
+
+void check_dupes_stack(t_stack *stack)
+{
+	t_node *check;	
+	t_node *current;
+
+	check = stack->a->head->next;
+	current = stack->a->head;
+	while (current != NULL)
+	{
+		while (check != NULL)
+		{
+			if (current->value == check->value)
+			{
+				dll_clear(stack->a);
+				dll_clear(stack->b);
+				write(2, "Error Duplicate\n", 16);
+				exit(EXIT_FAILURE);
+			}
+			check = check->next;
+		}
+		current = current->next;
+		if (current != NULL)
+			check = current->next;
+	}
 }

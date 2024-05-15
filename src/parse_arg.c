@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/14 18:49:21 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/15 15:09:30 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	**parse_mul_arg(int ac, char **av, t_stack *stack)
 	return (lst);
 }
 
-char	**parse_solo_arg(char **av, t_stack *stack)
+void parse_solo_arg(char **av, t_stack *stack)
 {
 	size_t	i;
 	size_t	j;
@@ -63,7 +63,7 @@ char	**parse_solo_arg(char **av, t_stack *stack)
 			dll_insert_tail(ft_atoi(lst[i]), stack->a);
 		free(lst[i]);
 	}
+	check_dupes_stack(stack);
 	free(lst);
-	stack_print_forward(stack, 'a');
-	return (lst);
+	// stack_print_forward(stack, 'a');
 }
