@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 13:34:55 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/02 16:59:13 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/15 17:52:02 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void dll_insert_tail(ssize_t data, struct dll_edge *edge)
 	t_node *new;
 
 	new = dll_new_node(data);
+	if (new == NULL)
+	{
+		dll_clear(edge);
+		return ;
+	}
 	if (edge->tail == NULL)
 	{
 		edge->head = new;

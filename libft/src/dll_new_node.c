@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 12:23:41 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/07 16:27:33 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/15 17:20:39 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_node	*dll_new_node(ssize_t data)
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return (NULL);
+	new->value = 0;
 	new->value = data;
 	new->next = NULL;
 	new->prev = NULL;
