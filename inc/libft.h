@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 12:37:08 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/15 14:17:55 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ void				dll_insert_tail(ssize_t data, struct dll_edge *edge);
 void				dll_delete_head(struct dll_edge *edge);
 void				dll_delete_tail(struct dll_edge *edge);
 void				dll_print_forward(struct dll_edge *edge);
+void				dll_print_backward(struct dll_edge *edge);
 void				dll_clear(struct dll_edge *edge);
 
 #endif
