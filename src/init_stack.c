@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/14 18:50:40 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/15 17:45:03 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ t_stack	*stack_init(void)
 	edge_a = dll_init();
 	edge_b = dll_init();
 	stack = malloc(sizeof(t_stack));
+	if (!stack)
+	{
+		return NULL;
+	}
 	stack->a = edge_a;
 	stack->b = edge_b;
 	return (stack);

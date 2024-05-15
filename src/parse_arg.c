@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 15:09:30 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/15 17:53:08 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,39 @@ size_t	d_array_len(char **lst)
 	}
 	return (len);
 }
-char	**parse_mul_arg(int ac, char **av, t_stack *stack)
+void	parse_mul_arg(int ac, char **av, t_stack *stack)
 {
 	size_t	i;
-	char	**lst;
 
 	i = 1;
 	while (i < ac)
 	{
-		if (check_quote_arg(lst, i))
-			dll_insert_tail(ft_atoi(lst[i]), stack->a);
-				// change atoi pour qu il renvoie un long
+		// printf("Test\n");
+		// int test = nbr_word_arg(av[i], ' ');
+		// printf("nbr word arg %zu : %d\n",i,test);
+		// printf("Test 2\n");
+		if (nbr_word_arg(av[i], ' ') != 1)
+		{
+			// printf("Test \n");
+			write(2, "Error Parsing\n", 14);
+			// system("leaks push_swap");
+			exit(EXIT_FAILURE);
+		}
+		// printf("Test 3\n");
+		if (check_error_arg(av, i))
+			dll_insert_tail(ft_atoi(av[i]), stack->a);
+		// printf("Test 6\n");
 		i++;
 	}
-	stack_print_forward(stack, 'a');
-	return (lst);
 }
 
 void parse_solo_arg(char **av, t_stack *stack)
 {
 	size_t	i;
-	size_t	j;
 	size_t	len;
 	char	**lst;
 
 	i = -1;
-	j = -1;
 	lst = ft_split(av[1], ' ');
 	len = d_array_len(lst);
 	while (++i < len)

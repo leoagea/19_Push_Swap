@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 15:13:39 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/15 17:50:00 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,55 +15,18 @@
 
 size_t	check_error_arg(char **lst, size_t i)
 {
-	size_t	j;
+	long res_atol;
 
-	j = -1;
-	while (lst[++i])
-	{
-		if (ft_atol(lst[i]) > INT_MAX)
-			exit_error_array(lst, i);
-	}
-	return (1);
-}
-
-void	exit_error_array(char **lst, size_t i)
-{
-	while (lst[i] != NULL)
-		free(lst[i++]);
-	write(2, "Error Parsing\n", 14);
-	system("leaks a.out");
-	exit(EXIT_FAILURE);
-}
-
-void	exit_error(t_stack *stack, char **lst, size_t i)
-{
-	while (lst[i] != NULL)
-		free(lst[i++]);
-	if (stack)
-	{
-		write(2, "Error Parsing\n", 14);
-		system("leaks a.out");
-		exit(EXIT_FAILURE);
-	}
-	write(2, "Error Parsing\n", 14);
-	system("leaks a.out");
-	exit(EXIT_FAILURE);
-}
-
-size_t	check_quote_arg(char **av, size_t i)
-{
-	char	**lst;
-
-	// printf("test\n");
-	// printf("i : %zu\n",i);
-	lst = ft_split(av[i], ' '); /// segfault check
-	// printf("test\n");
-	if (d_array_len(lst) > 1)
-	{
-		write(2, "Error Parsing\n", 14);
-		system("leaks a.out");
-		exit(EXIT_FAILURE);
-	}
+	res_atol = 0;
+	// while (lst[++i])
+	// {
+	// res_atol = 0;
+	// printf("Test 4, lst[i] : %zu\n",i);
+	res_atol = ft_atol(lst[i]);
+	// printf("Test 5, res : %ld\n",res_atol);
+	if (res_atol > INT_MAX || res_atol < INT_MIN)
+		exit_error_array(lst, i);
+	// }
 	return (1);
 }
 
@@ -91,4 +54,30 @@ void check_dupes_stack(t_stack *stack)
 		if (current != NULL)
 			check = current->next;
 	}
+}
+
+int nbr_word_arg(char const *s, char c)
+{
+	int		i;
+	int		index;
+	int		len_word;
+
+	i = 0;
+	index = 0;
+	len_word = 1;
+	while (s[index])
+	{
+		if (ft_isdigit((int) s[index]))
+			index++;
+		else if (s[index] == '-' || s[index] == '+')
+			index++;
+		else
+		{
+			len_word++;
+			index++;
+		}
+	}
+	// printf("Test 1\n");
+
+	return (len_word);
 }

@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/14 18:48:51 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/15 18:13:30 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,21 @@ int	cost_calcul(int temp_a, int temp_b, int temp_c, int temp_d)
 
 	temp = 0;
 	if (temp_a != 0 && temp_c != 0)
+	{
+		if (temp_a > temp_c)
+			temp += temp_a;
+		else if (temp_c > temp_a)
+			temp += temp_c;
 		temp += temp_a + (temp_a - temp_c);
+	}
 	if (temp_b != 0 && temp_d != 0)
-		temp += temp_b + (temp_b - temp_d);
+	{
+		if (temp_b > temp_d)
+			temp += temp_b;
+		else if (temp_d > temp_b)
+			temp += temp_d;
+		// temp += temp_b + (temp_b - temp_d);
+	}
 	return (temp);
 }
 
