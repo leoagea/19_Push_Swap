@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/16 17:35:55 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/16 17:56:18 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 typedef struct s_node
 {
 	int				cost;
-	int 			index; 
-	bool 			median;
+	int				index;
+	bool			median;
 	ssize_t			value;
 	struct s_node	*prev;
 	struct s_node	*next;
@@ -71,12 +71,13 @@ void				find_median(struct dll_edge *a);
 
 size_t				check_error_arg(char **lst, size_t i);
 void				check_dupes_stack(t_stack *stack);
-int nbr_word_arg(char const *s, char c);
+int					nbr_word_arg(char const *s, char c);
 
 /*----------------------Exit-----------------------*/
 
 void				exit_error(t_stack *stack, char **lst, size_t i);
 void				exit_error_array(char **lst, size_t i);
+void				exit_stack(t_stack *stack);
 
 /*----------------------Cost-----------------------*/
 
@@ -97,8 +98,10 @@ t_node				*find_smallest_a(t_stack *stack);
 void				sort(t_stack *stack, t_node *closest, t_node *min_cost);
 bool				is_sort(t_stack *stack);
 void				sort_three_elements(t_stack *stack);
+void				sort_until_3(t_stack *stack);
+void				sort_five_elements(t_stack *stack);
 void				push_swap(t_stack *stack);
-void sort_until_3(t_stack *stack);
+void				sort_until_3(t_stack *stack);
 void				final_sort(t_stack *stack);
 t_node				*find_target_pushback(t_stack *stack, t_node *node);
 void				final_rotate(t_stack *stack);
