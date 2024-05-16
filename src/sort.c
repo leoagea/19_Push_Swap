@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 18:20:53 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/16 15:29:46 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,19 @@ t_node	*find_biggest_a(t_stack *stack)
 	t_node	*current;
 	t_node	*biggest;
 
-	biggest_a = 0;
-	biggest = NULL;
 	current = stack->a->head;
+	biggest_a = current->value;
+	biggest = NULL;
 	while (current != NULL)
 	{
-		if (biggest_a < current->value)
+		if (biggest_a > current->value)
+			current = current->next;
+		else 
 		{
 			biggest_a = current->value;
 			biggest = current;
+			current = current->next;
 		}
-		current = current->next;
 	}
 	return (biggest);
 }
@@ -113,31 +115,33 @@ void	sort_three_elements(t_stack *stack)
 
 	if (is_sort(stack))
 		return ;
-	printf("test 3\n");
-	biggest = find_biggest_a(stack);
-	printf("test 4\n");
-	smallest = find_smallest_a(stack);
-	printf("test 5\n");
-    printf("\nStack a\n");
-    dll_print_forward(stack->a);
 	index_init(stack->a);
+	// printf("test 3\n");
+	biggest = find_biggest_a(stack);
+	// printf("test 4\n");
+	smallest = find_smallest_a(stack);
+    // printf("\nStack a\n");
+	// printf("smallest : %zd , index : %d", smallest->value, smallest->index);
+	// printf("biggest : %zd , index : %d", biggest->value, biggest->index);
+	// printf("test 5\n");
+    // dll_print_forward(stack->a);
 	if (smallest->index == 2 && biggest->index == 3)
 		swap_a(stack);
 	else if (smallest->index == 2 && biggest->index == 1)
 		rotate_a(stack);
 	else if (smallest->index == 3 && biggest->index == 2)
 		reverse_rotate_a(stack);
-	else if (smallest->index == 1 && biggest->index == 2)
-	{
-		reverse_rotate_a(stack);
-		swap_a(stack);
-	}
 	else if (smallest->index == 3 && biggest->index == 1)
 	{
 		rotate_a(stack);
 		swap_a(stack);
 	}
-	printf("test 6\n");
+	else if (smallest->index == 1 && biggest->index == 2)
+	{
+		reverse_rotate_a(stack);
+		swap_a(stack);
+	}
+	// printf("test 6\n");
 }
 
 bool	is_sort(t_stack *stack)
@@ -171,11 +175,11 @@ void	push_swap(t_stack *stack)
 		closest = find_closest(stack, min_cost);
 		sort(stack, closest, min_cost);
 		dll_len = dll_size(stack->a);
-		printf("test\n");
+		// printf("test\n");
 	}
-	printf("test 1\n");
+	// printf("test 1\n");
 	sort_three_elements(stack);
-	printf("test 2\n");
+	// printf("test 2\n");
 	dll_len = dll_size(stack->b);
 	while (dll_len != 0)
 	{
