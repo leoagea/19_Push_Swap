@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/16 15:29:46 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/16 17:41:49 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,25 +161,22 @@ bool	is_sort(t_stack *stack)
 void	push_swap(t_stack *stack)
 {
 	int		dll_len;
-	t_node	*closest;
-	t_node	*min_cost;
 
 	dll_len = dll_size(stack->a);
+	if (dll_len == 3)
+	{
+		sort_three_elements(stack);
+		dll_clear(stack->a);
+		dll_clear(stack->b);
+		exit(EXIT_SUCCESS);
+	}
+	// if (dll_len == 5)
+		
 	while (dll_len != 3)
 	{
-		index_init_stack(stack);
-		find_median(stack->a);
-		find_median(stack->b);
-		find_cost_stack(stack);
-		min_cost = find_min_cost(stack);
-		closest = find_closest(stack, min_cost);
-		sort(stack, closest, min_cost);
-		dll_len = dll_size(stack->a);
-		// printf("test\n");
+		sort_until_3(stack);
 	}
-	// printf("test 1\n");
 	sort_three_elements(stack);
-	// printf("test 2\n");
 	dll_len = dll_size(stack->b);
 	while (dll_len != 0)
 	{
@@ -188,6 +185,24 @@ void	push_swap(t_stack *stack)
 	}
 	final_rotate(stack);
 }
+
+void sort_until_3(t_stack *stack)
+{
+	size_t dll_len;
+	t_node	*closest;
+	t_node	*min_cost;
+	
+	index_init_stack(stack);
+	find_median(stack->a);
+	find_median(stack->b);
+	find_cost_stack(stack);
+	min_cost = find_min_cost(stack);
+	closest = find_closest(stack, min_cost);
+	sort(stack, closest, min_cost);
+	dll_len = dll_size(stack->a);
+}
+
+
 
 void	final_sort(t_stack *stack)
 {
