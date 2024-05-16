@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 14:41:18 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 13:17:00 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/16 16:39:14 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void dll_print_forward(struct dll_edge *edge)
 	while (current != NULL)
 	{
 		// printf("index %d : %zd |	 cost : %d|	 median : %d\n",current->index,current->value,current->cost,current->median);
-		printf("index %d : %zd\n",current->index,current->value);
+		printf("index %d : %zd , addr next : %p, addr prev : %p, addr : %p\n",current->index,current->value,&current->next, &current->prev, current);
 		current = current->next;
 	}
 }

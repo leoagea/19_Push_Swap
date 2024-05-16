@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/16 15:29:46 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/16 15:48:38 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ void	sort(t_stack *stack, t_node *closest, t_node *min_cost)
 			rotate_b(stack);
 		else if (!closest->median && closest->index != 1)
 			reverse_rotate_b(stack);
-		index_init_stack(stack);
+		index_init(stack->a);
+		index_init(stack->b);
 		find_median(stack->a);
 		find_median(stack->b);
 	}

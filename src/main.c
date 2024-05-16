@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/16 15:32:43 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/16 17:00:07 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,41 +21,45 @@ int main(int ac, char **av)
     stack = stack_init();
     if (!stack)
         exit(EXIT_FAILURE);
-    if (ac == 1)
-        return (free(stack),write(2, "Error Parsing 0 Arguments\n", 26),1);
-    else if (ac == 2)
-		parse_solo_arg(av,stack);
-    else
-    {
-        parse_mul_arg(ac,av, stack);
-    }
-    push_b(stack);
-    push_b(stack);
+    // if (ac == 1)
+    //     return (free(stack),write(2, "Error Parsing 0 Arguments\n", 26),1);
+    // else if (ac == 2)
+	// 	parse_solo_arg(av,stack);
+    // else
+    // {
+    //     parse_mul_arg(ac,av, stack);
+    // }
+    dll_insert_tail(-22,stack->b);
+    dll_insert_tail(-58,stack->b);
+    dll_insert_tail(-64,stack->b);
+    // push_b(stack);
+    // push_b(stack);
 
-    // index_init_stack(stack);
-    // find_median(stack->a);
-    // find_median(stack->b);
-    // printf("\nStack a\n");
-    // dll_print_forward(stack->a);
+    // push_b(stack);
+    index_init_stack(stack);
+    find_median(stack->a);
+    find_median(stack->b);
+    printf("\nStack b\n");
+    dll_print_forward(stack->b);
     // printf("\nStack b\n");
     // dll_print_forward(stack->b);
     // printf("\n\n\n");
     
-    push_swap(stack);
+    // push_swap(stack);
 
-    // dll_insert_tail(-22,stack->a);
-    // dll_insert_tail(-58,stack->a);
-    // dll_insert_tail(-64,stack->a);
-
+    // printf("value head : %zd",stack->a->head->value);
+    // reverse_rotate_b(stack);
+    t_node *current = stack->a->head;
+    printf("value head : %zd",current->next->value);
     // sort_three_elements(stack);
     
     index_init_stack(stack);
     // printf("\nStack a\n");
     // dll_print_forward(stack->a);
     
-    // printf("\nStack b\n");
-    // dll_print_forward(stack->b);
-    // printf("\n\n\n");
+    printf("\nStack b\n");
+    dll_print_forward(stack->b);
+    printf("\n\n\n");
 
     // index_init_stack(stack);
     // printf("\nStack a\n");
@@ -71,7 +75,7 @@ int main(int ac, char **av)
     dll_clear(stack->b);
     
     // // ft_split(av[1], ' ');
-    // // system("leaks push_swap");
+    // system("leaks push_swap");
 
     return 0; 
 } 
