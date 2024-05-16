@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/16 15:48:38 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/16 17:24:19 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sort(t_stack *stack, t_node *closest, t_node *min_cost)
 	t_node	*current;
 
 	current = stack->a->head;
-	while (stack->a->head != min_cost || stack->b->head != closest)
+	while (min_cost->index !=1 && closest->index != 1)
 	{
 		if (min_cost->median && closest->median && min_cost->index != 1
 			&& closest->index != 1)
@@ -55,6 +55,8 @@ void	sort(t_stack *stack, t_node *closest, t_node *min_cost)
 			rotate_b(stack);
 		else if (!closest->median && closest->index != 1)
 			reverse_rotate_b(stack);
+		// printf("value head a : %zd\n", stack->a->head->value);
+		// printf("value head b: %zd\n", stack->b->head->value);
 		index_init(stack->a);
 		index_init(stack->b);
 		find_median(stack->a);
