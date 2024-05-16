@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/16 15:32:43 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/16 17:47:37 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int main(int ac, char **av)
     {
         parse_mul_arg(ac,av, stack);
     }
-    push_b(stack);
-    push_b(stack);
 
     // index_init_stack(stack);
     // find_median(stack->a);
