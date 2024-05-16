@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 17:53:08 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/16 17:30:56 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	parse_mul_arg(int ac, char **av, t_stack *stack)
 		// printf("Test 6\n");
 		i++;
 	}
+	check_dupes_stack(stack);
 }
 
 void parse_solo_arg(char **av, t_stack *stack)
