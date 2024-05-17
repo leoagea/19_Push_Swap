@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/16 17:47:37 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:46:25 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,17 @@ int main(int ac, char **av)
     // dll_print_forward(stack->b);
     // printf("\n\n\n");
     
+    // printf("mean value is : %f\n",find_average(stack));
+    printf("\nStack a\n");
+    dll_print_forward(stack->a);
+
     push_swap(stack);
+    
+    printf("\nStack a\n");
+    dll_print_forward(stack->a);
+    
+    printf("\nStack b\n");
+    dll_print_forward(stack->b);
 
     // dll_insert_tail(-22,stack->a);
     // dll_insert_tail(-58,stack->a);
@@ -47,7 +57,6 @@ int main(int ac, char **av)
 
     // sort_three_elements(stack);
     
-    index_init_stack(stack);
     // printf("\nStack a\n");
     // dll_print_forward(stack->a);
     

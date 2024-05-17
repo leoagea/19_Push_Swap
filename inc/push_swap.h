@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 14:14:49 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:44:56 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,9 @@ t_node				*find_min_cost(t_stack *stack);
 bool				is_sort(t_stack *stack);
 void				sort_three_elements(t_stack *stack);
 void				sort_five_elements(t_stack *stack);
+void put_best_node_top(t_stack *stack, t_node *min, t_node *best);
+void sort(t_stack *stack);
+void final_rotate(t_stack *stack);
 
 /*----------------------Move-----------------------*/
 

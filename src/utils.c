@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 14:20:20 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:21:50 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,9 +191,9 @@ void find_cost(t_stack *stack)
 		best = find_best_friend(stack, current);
 		cost_b = find_moves_bestfriend(stack,best);
 		cost_n = find_moves_node(stack,current);
-		printf("cost_b : %d, cost_n : %d\n",cost_b, cost_n);
+		// printf("cost_b : %d, cost_n : %d\n",cost_b, cost_n);
 		current->cost = cost_b + cost_n;
-		printf("current : %zd, best friend : %zd, cost best : %d\n", current->value,best->value,current->cost);
+		// printf("current : %zd, best friend : %zd, cost best : %d\n", current->value,best->value,current->cost);
 		current = current->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 17:45:03 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 13:25:54 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,15 @@ void	print_2_stack(t_stack *stack)
 
 	current_a = stack->a->head;
 	current_b = stack->b->head;
-	// printf("Stack a			stack b\n");
+	printf("Stack a			stack b\n");
 	while (current_a != NULL && current_b != NULL)
 	{
-		// printf("%zd			%zd\n",current_a->value, current_b->value);
+		if (current_a != NULL && current_b != NULL)
+			printf("%zd			%zd\n",current_a->value, current_b->value);
+		else if (current_a != NULL && current_b == NULL)
+			printf("%zd			NULL\n",current_a->value);
+		else if (current_b != NULL && current_a == NULL)
+			printf("NULL			%zd\n",current_b->value);
 		if (current_a != NULL)
 			current_a = current_a->next;
 		else if (current_b != NULL)

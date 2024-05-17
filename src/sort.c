@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 14:41:04 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 15:09:23 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,20 +107,30 @@ bool	is_sort(t_stack *stack)
 
 void put_best_node_top(t_stack *stack, t_node *min, t_node *best)
 {
-	while(min->index !=1)
-	{
-		if (min->median)
+	if (min->median)
+		while(min->index != 1)
+		{
 			rotate_b(stack);
-		else if (!min->median)
+			index_init(stack->b);
+		}
+	else
+		while(min->index != 1)
+		{
 			reverse_rotate_b(stack);
-	}
-	while (best->index != 1)
-	{
-		if (best->median)
+			index_init(stack->b);
+		}
+	if (best->median)
+		while (best->index != 1)
+		{
 			rotate_a(stack);
-		else if (!best->median)
+			index_init(stack->b);
+		}
+	else
+		while (best->index != 1)
+		{
 			reverse_rotate_a(stack);
-	}
+			index_init(stack->b);
+		}
 	push_a(stack);
 }
 
@@ -144,4 +154,21 @@ void sort(t_stack *stack)
 	min_cost = find_min_cost(stack);
 	bestfriend = find_best_friend(stack,min_cost);
 	put_best_node_top(stack,min_cost,bestfriend);
+}
+
+void final_rotate(t_stack *stack)
+{
+	t_node *smallest;
+
+	smallest = find_smallest_a(stack);
+	find_median(stack->a);
+	while (smallest->index != 1)
+	{
+		if (smallest->median)
+			rotate_a(stack);
+		else 
+			reverse_rotate_a(stack);
+		find_median(stack->a);
+		index_init(stack->a);
+	}
 }
