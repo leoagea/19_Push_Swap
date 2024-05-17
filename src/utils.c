@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cost.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 18:13:30 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 13:14:01 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,51 @@ t_node	*find_smallest_b(t_stack *stack)
 	return (smallest);
 }
 
+t_node	*find_biggest_a(t_stack *stack)
+{
+	int		biggest_a;
+	t_node	*current;
+	t_node	*biggest;
+
+	current = stack->a->head;
+	biggest_a = current->value;
+	biggest = NULL;
+	while (current != NULL)
+	{
+		if (biggest_a > current->value)
+			current = current->next;
+		else 
+		{
+			biggest_a = current->value;
+			biggest = current;
+			current = current->next;
+		}
+	}
+	return (biggest);
+}
+
+t_node	*find_smallest_a(t_stack *stack)
+{
+	int		smallest_a;
+	t_node	*current;
+	t_node	*smallest;
+
+	current = stack->a->head;
+	smallest_a = current->value;
+	smallest = NULL;
+	while (current != NULL)
+	{
+		if (smallest_a < current->value)
+			current = current->next;
+		else
+		{
+			smallest_a = current->value;
+			smallest = current;
+			current = current->next;
+		}
+	}
+	return (smallest);
+}
 t_node	*find_closest(t_stack *stack, t_node *node)
 {
 	t_node	*bigest;
@@ -83,68 +128,21 @@ t_node	*find_closest(t_stack *stack, t_node *node)
 	return (closest);
 }
 
-int	cost_calcul(int temp_a, int temp_b, int temp_c, int temp_d)
+float find_average(t_stack *stack)
 {
-	int	temp;
-
-	temp = 0;
-	if (temp_a != 0 && temp_c != 0)
-	{
-		if (temp_a > temp_c)
-			temp += temp_a;
-		else if (temp_c > temp_a)
-			temp += temp_c;
-		temp += temp_a + (temp_a - temp_c);
-	}
-	if (temp_b != 0 && temp_d != 0)
-	{
-		if (temp_b > temp_d)
-			temp += temp_b;
-		else if (temp_d > temp_b)
-			temp += temp_d;
-		// temp += temp_b + (temp_b - temp_d);
-	}
-	return (temp);
-}
-
-void	find_cost(t_stack *stack, t_node *current, t_node *closest)
-{
-	int	temp;
-	int	temp_a;
-	int	temp_b;
-	int	temp_c;
-	int	temp_d;
-	int	dll_len;
-
-	temp_a = 0;
-	temp_b = 0;
-	temp_c = 0;
-	temp_d = 0;
-	dll_len = dll_size(stack->a);
-	if (current->median)
-		temp_a = current->index - 1;
-	else
-		temp_b = dll_len - current->index + 1;
-	dll_len = dll_size(stack->b);
-	if (closest->median)
-		temp_c = closest->index - 1;
-	else
-		temp_d += dll_len - closest->index + 1;
-	temp = cost_calcul(temp_a, temp_b, temp_c, temp_d);
-	// printf("temp : %d\n",temp);
-	current->cost = temp;
-}
-
-void	find_cost_stack(t_stack *stack)
-{
-	t_node *target;
+	int count;
+	float average;
 	t_node *current;
-
+	
+	count = 0;
+	average = 0;
 	current = stack->a->head;
 	while (current != NULL)
 	{
-		target = find_closest(stack, current);
-		find_cost(stack, current, target);
+		average += current->value;
+		count++;
 		current = current->next;
 	}
+	return average/count;
 }
+
