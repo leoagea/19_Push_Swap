@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 13:14:01 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:05:52 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,3 +146,60 @@ float find_average(t_stack *stack)
 	return average/count;
 }
 
+t_node	*find_best_friend(t_stack *stack, t_node *node)
+{
+	t_node	*biggest;
+	t_node	*smallest;
+	t_node	*current;
+	t_node	*closest;
+
+	biggest = find_biggest_a(stack);
+	smallest = find_smallest_a(stack);
+	// if (node->value < smallest->value)
+	// 	return (biggest);
+	// else if (node->value > bigest->value)
+	// 	return (biggest);
+	closest = biggest;
+	current = stack->a->head;
+	while (current != NULL)
+	{
+		if (current->value < closest->value && current->value > node->value)
+		{
+			closest = current;
+			current = current->next;
+		}
+		else
+			current = current->next;
+	}
+	return (closest);
+}
+
+void find_cost(t_stack *stack)
+{
+	t_node *current;
+	t_node *best;
+
+	current = stack->b->head;
+	while (current != NULL)
+	{
+		best = find_best_friend(stack, current);
+		find_moves_bestfriend(stack,best);
+		printf("current : %zd, best friend : %zd, cost best : %d\n", current->value,best->value,best->cost);
+		current = current->next;
+	}
+}
+
+void find_moves_bestfriend(t_stack *stack, t_node *bestfriend)
+{
+	int cost;
+	int dll_len = dll_size(stack->a);
+	find_median(stack->a);
+	index_init(stack->a);
+	
+	cost = 0;
+	if (bestfriend->median && bestfriend->index != 1)
+		cost = bestfriend->index - 1;
+	else if (!bestfriend->median)
+		cost = dll_len - bestfriend->index + 1;
+	bestfriend->cost = cost;
+}
