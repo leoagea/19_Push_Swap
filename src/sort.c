@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
+/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 18:08:34 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/18 01:09:38 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 #include "../inc/push_swap.h"
 
-t_node	*find_min_cost(t_stack *stack)
+t_node	*find_min_cost(t_stack *stack_b)
 {
 	t_node	*current;
 	t_node	*min_cost;
 
-	current = stack->b->head;
+	current = stack_b->head;
 	min_cost = current;
 	current = current->next;
 	while (current != NULL)
@@ -34,68 +34,68 @@ t_node	*find_min_cost(t_stack *stack)
 	return (min_cost);
 }
 
-void	sort_three_elements(t_stack *stack)
+void	sort_three_elements(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*biggest;
 	t_node	*smallest;
 
-	if (is_sort(stack))
+	if (is_sort(stack_a))
 		return ;
-	index_init(stack->a);
-	biggest = find_biggest_a(stack);
-	smallest = find_smallest_a(stack);
+	index_init(stack_a);
+	biggest = find_biggest_a(stack_a);
+	smallest = find_smallest_a(stack_a);
 	if (smallest->index == 2 && biggest->index == 3)
-		swap_a(stack);
+		swap_a(stack_a, stack_b);
 	else if (smallest->index == 2 && biggest->index == 1)
-		rotate_a(stack);
+		rotate_a(stack_a, true);
 	else if (smallest->index == 3 && biggest->index == 2)
-		reverse_rotate_a(stack);
+		reverse_rotate_a(stack_a, true);
 	else if (smallest->index == 3 && biggest->index == 1)
 	{
-		rotate_a(stack);
-		swap_a(stack);
+		rotate_a(stack_a, true);
+		swap_a(stack_a, true);
 	}
 	else if (smallest->index == 1 && biggest->index == 2)
 	{
-		reverse_rotate_a(stack);
-		swap_a(stack);
+		reverse_rotate_a(stack_a, true);
+		swap_a(stack_a, true);
 	}
 }
 
-void sort_five_elements(t_stack *stack)
+void sort_five_elements(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node *smallest;
 
-	find_median(stack->a);
-	smallest = find_smallest_a(stack);
+	find_median(stack_a);
+	smallest = find_smallest_a(stack_a);
 	while (smallest->index != 1)
 	{
 		if (smallest->median)
-			rotate_a(stack);
+			rotate_a(stack_a, true);
 		else
-			reverse_rotate_a(stack);
+			reverse_rotate_a(stack_a,true);
 	}
-	push_b(stack);
-	find_median(stack->a);
-	smallest = find_smallest_a(stack);
+	push_b(stack_a,stack_b);
+	find_median(stack_a);
+	smallest = find_smallest_a(stack_a);
 	while (smallest->index != 1)
 	{
 		if (smallest->median)
-			rotate_a(stack);
+			rotate_a(stack_a, true);
 		else
-			reverse_rotate_a(stack);
+			reverse_rotate_a(stack_a,true);
 	}
-	push_b(stack);
-	sort_three_elements(stack);
-	push_a(stack);
-	push_a(stack);
+	push_b(stack_a,stack_b);
+	sort_three_elements(stack_a, stack_a);
+	push_a(stack_a, stack_a);
+	push_a(stack_a, stack_b);
 }
 
-bool	is_sort(t_stack *stack)
+bool	is_sort(t_stack *stack_a)
 {
 	t_node	*current;
 
-	current = stack->a->head;
+	current = stack_a->head;
 	while (current->next != NULL)
 	{
 		if (current->value > current->next->value)
@@ -105,7 +105,7 @@ bool	is_sort(t_stack *stack)
 	return (true);
 }
 
-void put_best_node_top(t_stack *stack, t_node *min, t_node *best)
+void put_best_node_top(t_stack *stack_a, t_stack *stack_b, t_node *min, t_node *best)
 {
 	// int i;
 	// int j;
@@ -116,7 +116,7 @@ void put_best_node_top(t_stack *stack, t_node *min, t_node *best)
 	{
 		// i = min->index - 1;
 		while(min->index != 1)
-			rotate_b(stack);
+			rotate_b(stack_b, true);
 	}
 	else
 	{
@@ -125,7 +125,7 @@ void put_best_node_top(t_stack *stack, t_node *min, t_node *best)
 		{
 			// printf("%d \n",i);
 			// write (1 , "1\n", 1);
-			reverse_rotate_b(stack);
+			reverse_rotate_b(stack_b, true);
 		}
 	}
 	if (best->median)
@@ -134,7 +134,7 @@ void put_best_node_top(t_stack *stack, t_node *min, t_node *best)
 		while (best->index != 1)
 		{
 			// printf("%d \n",i);
-			rotate_a(stack);
+			rotate_a(stack_a, true);
 		}
 	}
 	else
@@ -143,50 +143,50 @@ void put_best_node_top(t_stack *stack, t_node *min, t_node *best)
 		while (best->index != 1)
 		{
 			// printf("%d \n",i);
-			reverse_rotate_a(stack);
+			reverse_rotate_a(stack_a, true);
 		}
 	}
-	push_a(stack);
+	push_a(stack_a, stack_b);
 }
 
-void sort(t_stack *stack)
+void sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int dll_len;
 	t_node *min_cost;
 	t_node *bestfriend;
 
-	dll_len = dll_size(stack->b);
+	dll_len = dll_size(stack_b);
 	while (dll_len != 1)
 	{
-		find_cost(stack);
-		min_cost = find_min_cost(stack);
-		bestfriend = find_best_friend(stack,min_cost);
+		find_cost(stack_a, stack_b);
+		min_cost = find_min_cost(stack_b);
+		bestfriend = find_best_friend(stack_a,min_cost);
 		// printf("min cost : %zd, bestfriend : %zd", min_cost->value,bestfriend->value);
-		put_best_node_top(stack,min_cost,bestfriend);
-		dll_len = dll_size(stack->b);
+		put_best_node_top(stack_a, stack_b, min_cost, bestfriend);
+		dll_len = dll_size(stack_b);
 	}
-	find_cost(stack);
-	min_cost = find_min_cost(stack);
-	bestfriend = find_best_friend(stack,min_cost);
-	put_best_node_top(stack,min_cost,bestfriend);
+	find_cost(stack_a, stack_b);
+	min_cost = find_min_cost(stack_b);
+	bestfriend = find_best_friend(stack_a, min_cost);
+	put_best_node_top(stack_a, stack_b, min_cost, bestfriend);
 }
 
-void final_rotate(t_stack *stack)
+void final_rotate(t_stack *stack_a)
 {
 	t_node *smallest;
 
-	smallest = find_smallest_a(stack);
-	index_init(stack->a);
-	find_median(stack->a);
+	smallest = find_smallest_a(stack_a);
+	index_init(stack_a);
+	find_median(stack_a);
 	while (smallest->index != 1)
 	{
 		// printf("smal val : %zd, index : %d\n", smallest->value,smallest->index);
 		if (smallest->median)
-			rotate_a(stack);
+			rotate_a(stack_a, true);
 		else 
-			reverse_rotate_a(stack);
-		index_init(stack->a);
-		find_median(stack->a);
+			reverse_rotate_a(stack_a, true);
+		index_init(stack_a);
+		find_median(stack_a);
 		// printf("smal val : %zd, index : %d\n", smallest->value,smallest->index);
 	}
 }

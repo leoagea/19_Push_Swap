@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
+/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 14:17:55 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/18 00:56:58 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,15 +118,14 @@ long				ft_atol(const char *str);
 
 /*---------------------------DOUBLE LIMKED LIST-------------------------------*/
 
-struct dll_edge		*dll_init(void);
 t_node				*dll_new_node(ssize_t data);
-size_t				dll_size(struct dll_edge *edge);
-void				dll_insert_head(ssize_t data, struct dll_edge *edge);
-void				dll_insert_tail(ssize_t data, struct dll_edge *edge);
-void				dll_delete_head(struct dll_edge *edge);
-void				dll_delete_tail(struct dll_edge *edge);
-void				dll_print_forward(struct dll_edge *edge);
-void				dll_print_backward(struct dll_edge *edge);
-void				dll_clear(struct dll_edge *edge);
+size_t	dll_size(t_stack *stack);
+void dll_insert_head(ssize_t data, t_stack *stack);
+void dll_insert_tail(ssize_t data, t_stack *stack);
+void dll_delete_head(t_stack *stack);
+void dll_delete_tail(t_stack *stack);
+void dll_print_forward(t_stack *stack);
+void	dll_print_backward(t_stack *stack);
+void dll_clear(t_stack *stack);
 
 #endif

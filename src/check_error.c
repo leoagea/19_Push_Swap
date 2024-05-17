@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
+/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/16 18:12:06 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/18 00:08:00 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ size_t	check_error_arg(char **lst, size_t i)
 	return (1);
 }
 
-void check_dupes_stack(t_stack *stack)
+void check_dupes_stack(t_stack *stack_a ,t_stack *stack_b)
 {
 	t_node *check;	
 	t_node *current;
 
-	check = stack->a->head->next;
-	current = stack->a->head;
+	check = stack_a->head->next;
+	current = stack_a->head;
 	while (current != NULL)
 	{
 		while (check != NULL)
 		{
 			if (current->value == check->value)
 			{
-				dll_clear(stack->a);
-				dll_clear(stack->b);
+				dll_clear(stack_a);
+				dll_clear(stack_b);
 				write(2, "Error Duplicate\n", 16);
 				exit(EXIT_FAILURE);
 			}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
+/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 13:25:54 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/18 00:52:39 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,23 @@
 
 t_stack	*stack_init(void)
 {
-	struct dll_edge	*edge_a;
-	struct dll_edge	*edge_b;
 	t_stack			*stack;
 
-	edge_a = dll_init();
-	edge_b = dll_init();
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-	{
 		return NULL;
-	}
-	stack->a = edge_a;
-	stack->b = edge_b;
+	stack->head = NULL;
+	stack->tail = NULL;
 	return (stack);
 }
 
-void	index_init(struct dll_edge *edge)
+void	index_init(t_stack *stack)
 {
 	int		index;
 	t_node	*current;
 
 	index = 1;
-	current = edge->head;
+	current = stack->head;
 	while (current != NULL)
 	{
 		current->index = index++;
@@ -45,76 +39,29 @@ void	index_init(struct dll_edge *edge)
 	}
 }
 
-void	index_init_stack(t_stack *stack)
+void	index_init_stack(t_stack *stack_a, t_stack * stack_b)
 {
 	int		index;
 	t_node	*current;
 
 	index = 1;
-	current = stack->a->head;
+	current = stack_a->head;
 	while (current != NULL)
 	{
 		current->index = index++;
 		current = current->next;
 	}
 	index = 1;
-	current = stack->b->head;
+	current = stack_b->head;
 	while (current != NULL)
 	{
 		current->index = index++;
 		current = current->next;
-	}
-}
-
-void	stack_print_forward(t_stack *stack, char c)
-{
-	t_node	*current;
-
-	if (c == 'a')
-	{
-		current = stack->a->head;
-		while (current != NULL)
-		{
-			// printf("%zd\n",current->value);
-			current = current->next;
-		}
-	}
-	else if (c == 'b')
-	{
-		current = stack->b->head;
-		while (current != NULL)
-		{
-			// printf("%zd\n",current->value);
-			current = current->next;
-		}
-	}
-}
-
-void	print_2_stack(t_stack *stack)
-{
-	t_node	*current_a;
-	t_node	*current_b;
-
-	current_a = stack->a->head;
-	current_b = stack->b->head;
-	printf("Stack a			stack b\n");
-	while (current_a != NULL && current_b != NULL)
-	{
-		if (current_a != NULL && current_b != NULL)
-			printf("%zd			%zd\n",current_a->value, current_b->value);
-		else if (current_a != NULL && current_b == NULL)
-			printf("%zd			NULL\n",current_a->value);
-		else if (current_b != NULL && current_a == NULL)
-			printf("NULL			%zd\n",current_b->value);
-		if (current_a != NULL)
-			current_a = current_a->next;
-		else if (current_b != NULL)
-			current_b = current_b->next;
 	}
 }
 // trouve la median de la stack et assigne 1 si above median
 // ou 0 si under median
-void	find_median(struct dll_edge *stack)
+void	find_median(t_stack *stack)
 {
 	int		dll_len;
 	int		median_stack;
