@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 14:05:52 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:20:20 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,32 +174,55 @@ t_node	*find_best_friend(t_stack *stack, t_node *node)
 	return (closest);
 }
 
+//improve la function pour si le bestfriend et le node doivent rotate dans le meme sens ne compter que 1 cost
 void find_cost(t_stack *stack)
 {
+	int cost_n;
+	int cost_b;
 	t_node *current;
 	t_node *best;
 
 	current = stack->b->head;
+	find_median(stack->a);
+	find_median(stack->b);
+	index_init_stack(stack);
 	while (current != NULL)
 	{
 		best = find_best_friend(stack, current);
-		find_moves_bestfriend(stack,best);
-		printf("current : %zd, best friend : %zd, cost best : %d\n", current->value,best->value,best->cost);
+		cost_b = find_moves_bestfriend(stack,best);
+		cost_n = find_moves_node(stack,current);
+		printf("cost_b : %d, cost_n : %d\n",cost_b, cost_n);
+		current->cost = cost_b + cost_n;
+		printf("current : %zd, best friend : %zd, cost best : %d\n", current->value,best->value,current->cost);
 		current = current->next;
 	}
 }
 
-void find_moves_bestfriend(t_stack *stack, t_node *bestfriend)
+int find_moves_bestfriend(t_stack *stack, t_node *bestfriend)
 {
 	int cost;
-	int dll_len = dll_size(stack->a);
-	find_median(stack->a);
-	index_init(stack->a);
+	int dll_len;
 	
 	cost = 0;
+	dll_len = dll_size(stack->a);
 	if (bestfriend->median && bestfriend->index != 1)
 		cost = bestfriend->index - 1;
 	else if (!bestfriend->median)
 		cost = dll_len - bestfriend->index + 1;
-	bestfriend->cost = cost;
+	return cost;
+}
+
+int find_moves_node(t_stack *stack, t_node *node)
+{
+	int cost;
+	int dll_len;
+
+	cost = 0;
+	dll_len = dll_size(stack->b);
+	if (node->median && node->index != 1)
+		cost = node->index - 1;
+	else if (!node->median)
+		cost = dll_len - node->index + 1;
+	return cost;
+	
 }

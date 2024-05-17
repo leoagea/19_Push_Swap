@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 13:22:33 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:14:49 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,10 @@ t_node				*find_smallest_a(t_stack *stack);
 t_node				*find_closest(t_stack *stack, t_node *node);
 
 float find_average(t_stack *stack);
+t_node	*find_best_friend(t_stack *stack, t_node *node);
+void find_cost(t_stack *stack);
+int find_moves_bestfriend(t_stack *stack, t_node *bestfriend);
+int find_moves_node(t_stack *stack, t_node *node);
 
 /*----------------------Sort-----------------------*/
 
