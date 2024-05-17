@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 14:22:20 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:41:04 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,3 +105,43 @@ bool	is_sort(t_stack *stack)
 	return (true);
 }
 
+void put_best_node_top(t_stack *stack, t_node *min, t_node *best)
+{
+	while(min->index !=1)
+	{
+		if (min->median)
+			rotate_b(stack);
+		else if (!min->median)
+			reverse_rotate_b(stack);
+	}
+	while (best->index != 1)
+	{
+		if (best->median)
+			rotate_a(stack);
+		else if (!best->median)
+			reverse_rotate_a(stack);
+	}
+	push_a(stack);
+}
+
+void sort(t_stack *stack)
+{
+	int dll_len;
+	t_node *min_cost;
+	t_node *bestfriend;
+
+	dll_len = dll_size(stack->b);
+	while (dll_len != 1)
+	{
+		find_cost(stack);
+		min_cost = find_min_cost(stack);
+		bestfriend = find_best_friend(stack,min_cost);
+		// printf("min cost : %zd, bestfriend : %zd", min_cost->value,bestfriend->value);
+		put_best_node_top(stack,min_cost,bestfriend);
+		dll_len = dll_size(stack->b);
+	}
+	find_cost(stack);
+	min_cost = find_min_cost(stack);
+	bestfriend = find_best_friend(stack,min_cost);
+	put_best_node_top(stack,min_cost,bestfriend);
+}
