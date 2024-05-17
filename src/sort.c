@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 12:53:54 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 14:22:20 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_node	*find_min_cost(t_stack *stack)
 	t_node	*current;
 	t_node	*min_cost;
 
-	current = stack->a->head;
+	current = stack->b->head;
 	min_cost = current;
 	current = current->next;
 	while (current != NULL)
