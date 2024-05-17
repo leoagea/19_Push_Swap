@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:47 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 14:45:03 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 17:12:14 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void sort_until_5(t_stack *stack)
 	float average;
 	
 	dll_len = dll_size(stack->a);
-	while(dll_len != 5)
+	while(dll_len > 5)
 	{
 		average = find_average(stack);	
 		if (stack->a->head->value < average)

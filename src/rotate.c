@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:37:33 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/14 18:49:30 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 16:19:07 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	rotate_b(t_stack *stack)
 	temp = stack->b->head->value;
 	dll_delete_head(stack->b);
 	dll_insert_tail(temp, stack->b);
-	write(1, "rb\n", 3);
 	index_init(stack->b);
+	write(1, "rb\n", 3);
 }
 
 void	rotate_rr(t_stack *stack)

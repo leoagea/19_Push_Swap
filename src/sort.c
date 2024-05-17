@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 15:09:23 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 18:08:34 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,30 +107,45 @@ bool	is_sort(t_stack *stack)
 
 void put_best_node_top(t_stack *stack, t_node *min, t_node *best)
 {
+	// int i;
+	// int j;
+	
+	// i = 0;
+	// j = 0;
 	if (min->median)
+	{
+		// i = min->index - 1;
 		while(min->index != 1)
-		{
 			rotate_b(stack);
-			index_init(stack->b);
-		}
+	}
 	else
+	{
+		// i = dll_size(stack->b) - min->index + 1;
 		while(min->index != 1)
 		{
+			// printf("%d \n",i);
+			// write (1 , "1\n", 1);
 			reverse_rotate_b(stack);
-			index_init(stack->b);
 		}
+	}
 	if (best->median)
+	{
+		// i = best->index - 1;
 		while (best->index != 1)
 		{
+			// printf("%d \n",i);
 			rotate_a(stack);
-			index_init(stack->b);
 		}
+	}
 	else
+	{
+		// i = dll_size(stack->a) - best->index + 1;
 		while (best->index != 1)
 		{
+			// printf("%d \n",i);
 			reverse_rotate_a(stack);
-			index_init(stack->b);
 		}
+	}
 	push_a(stack);
 }
 
@@ -161,14 +176,17 @@ void final_rotate(t_stack *stack)
 	t_node *smallest;
 
 	smallest = find_smallest_a(stack);
+	index_init(stack->a);
 	find_median(stack->a);
 	while (smallest->index != 1)
 	{
+		// printf("smal val : %zd, index : %d\n", smallest->value,smallest->index);
 		if (smallest->median)
 			rotate_a(stack);
 		else 
 			reverse_rotate_a(stack);
-		find_median(stack->a);
 		index_init(stack->a);
+		find_median(stack->a);
+		// printf("smal val : %zd, index : %d\n", smallest->value,smallest->index);
 	}
 }

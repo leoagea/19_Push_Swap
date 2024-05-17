@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 14:21:50 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 16:50:00 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,9 +183,9 @@ void find_cost(t_stack *stack)
 	t_node *best;
 
 	current = stack->b->head;
+	index_init_stack(stack);
 	find_median(stack->a);
 	find_median(stack->b);
-	index_init_stack(stack);
 	while (current != NULL)
 	{
 		best = find_best_friend(stack, current);

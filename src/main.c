@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/17 14:46:25 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/17 17:36:10 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(int ac, char **av)
     t_stack *stack;
     int dll_len;
     
+    stack = NULL;
     stack = stack_init();
     if (!stack)
         exit(EXIT_FAILURE);
@@ -30,26 +31,17 @@ int main(int ac, char **av)
         parse_mul_arg(ac,av, stack);
     }
 
-    // index_init_stack(stack);
-    // find_median(stack->a);
-    // find_median(stack->b);
+    // printf("mean value is : %f\n",find_average(stack));
     // printf("\nStack a\n");
     // dll_print_forward(stack->a);
-    // printf("\nStack b\n");
-    // dll_print_forward(stack->b);
-    // printf("\n\n\n");
-    
-    // printf("mean value is : %f\n",find_average(stack));
-    printf("\nStack a\n");
-    dll_print_forward(stack->a);
 
     push_swap(stack);
     
-    printf("\nStack a\n");
-    dll_print_forward(stack->a);
+    // printf("\nStack a\n");
+    // dll_print_forward(stack->a);
     
-    printf("\nStack b\n");
-    dll_print_forward(stack->b);
+    // printf("\nStack b\n");
+    // dll_print_forward(stack->b);
 
     // dll_insert_tail(-22,stack->a);
     // dll_insert_tail(-58,stack->a);
