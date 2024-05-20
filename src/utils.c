@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/18 00:51:50 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 16:11:56 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,8 +191,8 @@ void find_cost(t_stack *stack_a, t_stack *stack_b)
 		best = find_best_friend(stack_a, current);
 		cost_b = find_moves_bestfriend(stack_a,best);
 		cost_n = find_moves_node(stack_b,current);
-		// printf("cost_b : %d, cost_n : %d\n",cost_b, cost_n);
 		current->cost = cost_b + cost_n;
+		// printf("cost : %d\n",current->cost);
 		// printf("current : %zd, best friend : %zd, cost best : %d\n", current->value,best->value,current->cost);
 		current = current->next;
 	}

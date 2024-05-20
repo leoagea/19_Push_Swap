@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 14:07:11 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 16:23:57 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,10 +113,10 @@ bool	is_sort(t_stack *stack_a)
 
 void put_best_node_top(t_stack *stack_a, t_stack *stack_b, t_node *min, t_node *best)
 {
-	// int i;
+	int i;
 	// int j;
 	
-	// i = 0;
+	i = 0;
 	// j = 0;
 	if (min->median)
 	{
@@ -126,12 +126,15 @@ void put_best_node_top(t_stack *stack_a, t_stack *stack_b, t_node *min, t_node *
 	}
 	else
 	{
-		// i = dll_size(stack->b) - min->index + 1;
-		while(min->index != 1)
+		i = min->index;
+		while(i > 0)
 		{
 			// printf("%d \n",i);
 			// write (1 , "1\n", 1);
+			// index_init(stack_b);
+			// printf("%d \n",min->index);
 			reverse_rotate_b(stack_b, true);
+			i--;
 		}
 	}
 	if (best->median)
@@ -145,11 +148,13 @@ void put_best_node_top(t_stack *stack_a, t_stack *stack_b, t_node *min, t_node *
 	}
 	else
 	{
-		// i = dll_size(stack->a) - best->index + 1;
-		while (best->index != 1)
+		i = best->index;
+		while (i > 0)
 		{
-			// printf("%d \n",i);
+			// index_init(stack_a);
+			// printf("%d \n",best->index);
 			reverse_rotate_a(stack_a, true);
+			i--;
 		}
 	}
 	push_a(stack_a, stack_b);

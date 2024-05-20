@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 13:16:40 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 16:17:22 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	index_init(t_stack *stack)
 	current = stack->head;
 	while (current != NULL)
 	{
-		current->index = index++;
+		current->index = index;
+		index++;
 		current = current->next;
 	}
 }
