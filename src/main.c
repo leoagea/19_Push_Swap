@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 13:18:57 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 14:08:00 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,35 @@ int main(int ac, char **av)
     // printf("mean value is : %f\n",find_average(stack));
     // printf("\nStack a\n");
     // dll_print_forward(stack->a);
+    // printf("Avant modif \n");
+    // printf("\nStack a\n");
+	// print_stack(stack_a);
+	// printf("\nStack b\n");
+	// print_stack(stack_b);
+    
+    push_swap(stack_a, stack_b);
 
-    push_swap(stack_a, stack_a);
     
-    // swap_a(stack_a,true);
+    
     // push_b(stack_a, stack_b);
-    print_stack(stack_a);
+    // push_b(stack_a, stack_b);
+    // swap_a(stack_a,true);
+    // rotate_a(stack_a, true);
+    // reverse_rotate_b(stack_b,true);
+    // reverse_rotate_b(stack_b,true);
+
+    // index_init_stack(stack_a, stack_b);
+    // printf("\nStack a\n");
+	// dll_print_forward(stack_a);
+	// printf("\nStack b\n");
+    // dll_print_forward(stack_b);
     
-    index_init_stack(stack_a, stack_b);
-    printf("\nStack a\n");
-    dll_print_forward(stack_a);
+    // index_init_stack(stack_a, stack_b);
+    // printf("\nStack a\n");
+    // dll_print_forward(stack_a);
     
-    printf("\nStack b\n");
-    dll_print_forward(stack_b);
+    // printf("\nStack b\n");
+    // dll_print_forward(stack_b);
 
     // dll_insert_tail(-22,stack->a);
     // dll_insert_tail(-58,stack->a);

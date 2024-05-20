@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:50:04 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/18 00:30:57 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 13:54:33 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	reverse_rotate_a(t_stack *stack_a, bool print)
 void	reverse_rotate_b(t_stack *stack_b, bool print)
 {
 	ssize_t	temp;
-	// t_node *new;
-	// temp = stack->b->tail->value;
+
+	temp = stack_b->tail->value;
 	dll_delete_tail(stack_b);
 	dll_insert_head(temp, stack_b);
 	

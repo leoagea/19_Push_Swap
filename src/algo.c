@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:47 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 13:18:09 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 14:10:49 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,28 @@ void push_swap(t_stack *stack_a, t_stack *stack_b)
 	else
 	{
 		sort_until_5(stack_a, stack_b);
-		sort_five_elements(stack_a, stack_a);
+		sort_five_elements(stack_a, stack_b);
+		
+		// index_init_stack(stack_a, stack_b);
+    	// printf("\nStack a\n");
+    	// dll_print_forward(stack_a);
+		// printf("\nStack b\n");
+    	// dll_print_forward(stack_b);
 		sort(stack_a, stack_b);
+
+		// printf("\nSort");
+		// printf("\nStack a\n");
+		// print_stack(stack_a);
+		// printf("\nStack b\n");
+		// print_stack(stack_b);
+		
 		// final_rotate(stack_a);
+
+		// printf("\nFinal Rotate");
+		// printf("\nStack a\n");
+		// print_stack(stack_a);
+		// printf("\nStack b\n");
+		// print_stack(stack_b);
 	}
 }
 
@@ -36,6 +55,12 @@ void sort_until_5(t_stack *stack_a, t_stack *stack_b)
 {
 	int dll_len;
 	float average;
+	
+	// printf("\nSort until 5");
+	// printf("\nStack a\n");
+	// print_stack(stack_a);
+	// printf("\nStack b\n");
+	// print_stack(stack_b);
 	
 	dll_len = dll_size(stack_a);
 	while(dll_len > 5)
@@ -50,4 +75,10 @@ void sort_until_5(t_stack *stack_a, t_stack *stack_b)
 			rotate_a(stack_a, true);
 		dll_len = dll_size(stack_a);
 	}
+
+	// printf("\nSort until 5");
+	// printf("\nStack a\n");
+	// print_stack(stack_a);
+	// printf("\nStack b\n");
+	// print_stack(stack_b);
 }

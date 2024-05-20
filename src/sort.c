@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/18 01:09:38 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 14:07:11 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,13 @@ void	sort_three_elements(t_stack *stack_a, t_stack *stack_b)
 void sort_five_elements(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node *smallest;
-
+	
+	// printf("\nIN Sort 5");
+	// printf("\nStack a\n");
+	// print_stack(stack_a);
+	// printf("\nStack b\n");
+	// print_stack(stack_b);
+	
 	find_median(stack_a);
 	smallest = find_smallest_a(stack_a);
 	while (smallest->index != 1)
@@ -86,8 +92,8 @@ void sort_five_elements(t_stack *stack_a, t_stack *stack_b)
 			reverse_rotate_a(stack_a,true);
 	}
 	push_b(stack_a,stack_b);
-	sort_three_elements(stack_a, stack_a);
-	push_a(stack_a, stack_a);
+	sort_three_elements(stack_a, stack_b);
+	push_a(stack_a, stack_b);
 	push_a(stack_a, stack_b);
 }
 
@@ -170,6 +176,7 @@ void sort(t_stack *stack_a, t_stack *stack_b)
 	bestfriend = find_best_friend(stack_a, min_cost);
 	put_best_node_top(stack_a, stack_b, min_cost, bestfriend);
 }
+
 
 void final_rotate(t_stack *stack_a)
 {
