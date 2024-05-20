@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/18 01:02:09 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 13:16:07 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	find_median(t_stack *stack);
 
 // struct dll_edge* stack_cpy(t_stack *stack);
 // /*struct dll_edge**/void stack_cpy(t_stack *stack);
+
+void	print_stack(t_stack *stack);
 
 /*-------------------Check_error--------------------*/
 

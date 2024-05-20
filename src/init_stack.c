@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/18 00:52:39 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 13:16:40 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,22 @@ void	find_median(t_stack *stack)
 			current->median = false;
 		}
 		current = current->next;
+	}
+}
+
+void	print_stack(t_stack *stack)
+{
+	t_node	*temp;
+
+	temp = stack->head;
+	if (temp == NULL)
+	{
+		ft_printf("Liste vide");
+		return ;
+	}
+	while (temp != NULL)
+	{
+		printf("[%zd]\n", temp->value);
+		temp = temp->next;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:47 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/18 01:08:05 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 13:18:09 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void push_swap(t_stack *stack_a, t_stack *stack_b)
 		sort_until_5(stack_a, stack_b);
 		sort_five_elements(stack_a, stack_a);
 		sort(stack_a, stack_b);
-		final_rotate(stack_a);
+		// final_rotate(stack_a);
 	}
 }
 
