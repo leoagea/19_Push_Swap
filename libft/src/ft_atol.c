@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:31:37 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/06 12:36:52 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 18:34:58 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	skip_whitespace_and_sign(const char **str, int *sign)
 	}
 }
 
-long ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	int		sign;
 	long	res;
