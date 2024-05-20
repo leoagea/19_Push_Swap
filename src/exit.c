@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:05:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/18 00:53:42 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 18:28:27 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ void	exit_error(t_stack *stack, char **lst, size_t i)
 	if (stack)
 	{
 		write(2, "Error Parsing\n", 14);
-		// system("leaks push_swap");
 		exit(EXIT_FAILURE);
 	}
 	write(2, "Error Parsing\n", 14);
-	// system("leaks push_swap");
 	exit(EXIT_FAILURE);
 }
 
@@ -33,11 +31,10 @@ void	exit_error_array(char **lst, size_t i)
 	while (lst[i] != NULL)
 		free(lst[i++]);
 	write(2, "Error Parsing\n", 14);
-	// system("leaks push_swap");
 	exit(EXIT_FAILURE);
 }
 
-void exit_stack(t_stack *stack_a, t_stack *stack_b)
+void	exit_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	dll_clear(stack_a);
 	dll_clear(stack_b);

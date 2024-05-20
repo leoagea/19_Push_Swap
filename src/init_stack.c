@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 16:17:22 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 18:30:37 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 t_stack	*stack_init(void)
 {
-	t_stack			*stack;
+	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
-		return NULL;
+		return (NULL);
 	stack->head = NULL;
 	stack->tail = NULL;
 	return (stack);
@@ -40,7 +40,7 @@ void	index_init(t_stack *stack)
 	}
 }
 
-void	index_init_stack(t_stack *stack_a, t_stack * stack_b)
+void	index_init_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	int		index;
 	t_node	*current;
@@ -60,8 +60,7 @@ void	index_init_stack(t_stack *stack_a, t_stack * stack_b)
 		current = current->next;
 	}
 }
-// trouve la median de la stack et assigne 1 si above median
-// ou 0 si under median
+
 void	find_median(t_stack *stack)
 {
 	int		dll_len;
@@ -74,15 +73,9 @@ void	find_median(t_stack *stack)
 	while (current != NULL)
 	{
 		if (current->index <= median_stack)
-		{
-			// printf("test\n");
 			current->median = true;
-		}
 		else
-		{
-			// printf("test 1\n");
 			current->median = false;
-		}
 		current = current->next;
 	}
 }
