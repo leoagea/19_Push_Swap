@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 14:54:32 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 14:56:30 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,21 +107,20 @@ void				push_b(t_stack *stack_a, t_stack *stack_b);
 
 void				rotate_a(t_stack *stack_a, bool print);
 void				rotate_b(t_stack *stack_b, bool print);
-void				rotate_rr(t_stack *stack);
+void				rotate_rr(t_stack *stack_a, t_stack *stack_b);
 
 /*----------------Reverse Rotate-------------------*/
 
 void				reverse_rotate_a(t_stack *stack_a, bool print);
 void				reverse_rotate_b(t_stack *stack_b, bool print);
-void	rotate_rr(t_stack *stack_a, t_stack *stack_b);
+void				reverse_rotate_rr(t_stack *stack_a, t_stack *stack_b);
 
 /*-------------------------------------------------*/
-
 /*----------------------BONUS----------------------*/
 
 /*---------------------Checker---------------------*/
 
-void	checker(t_stack *stack_a, t_stack *stack_b);
-int	is_command(char *cmd);
+void				checker(t_stack *stack_a, t_stack *stack_b);
+int					is_command(char *cmd);
 
 #endif
