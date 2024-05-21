@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 18:31:11 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 18:16:30 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,25 +56,25 @@ void	put_best_node_top(t_stack *stack_a, t_stack *stack_b, t_node *min,
 	i = 0;
 	if (min->median)
 		while (min->index != 1)
-			rotate_b(stack_b, true);
+			rotate_b(stack_b, stack_a, true);
 	else
 	{
 		i = dll_size(stack_b) - min->index + 1;
 		while (i > 0)
 		{
-			reverse_rotate_b(stack_b, true);
+			reverse_rotate_b(stack_b, stack_a, true);
 			i--;
 		}
 	}
 	if (best->median)
 		while (best->index != 1)
-			rotate_a(stack_a, true);
+			rotate_a(stack_a, stack_b, true);
 	else
 	{
 		i = dll_size(stack_a) - best->index + 1;
 		while (i > 0)
 		{
-			reverse_rotate_a(stack_a, true);
+			reverse_rotate_a(stack_a, stack_b, true);
 			i--;
 		}
 	}
@@ -102,7 +102,7 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	put_best_node_top(stack_a, stack_b, min_cost, bestfriend);
 }
 
-void	final_rotate(t_stack *stack_a)
+void	final_rotate(t_stack *stack_a, t_stack *stack_b)
 {
 	int		i;
 	t_node	*smallest;
@@ -114,9 +114,9 @@ void	final_rotate(t_stack *stack_a)
 	while (i > 0)
 	{
 		if (smallest->median)
-			rotate_a(stack_a, true);
+			rotate_a(stack_a, stack_b, true);
 		else
-			reverse_rotate_a(stack_a, true);
+			reverse_rotate_a(stack_a, stack_b, true);
 		index_init(stack_a);
 		find_median(stack_a);
 		i--;

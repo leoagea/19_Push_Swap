@@ -6,19 +6,21 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 18:26:42 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 18:03:14 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 #include "../inc/push_swap.h"
 
-void	swap_a(t_stack *stack_a, bool print)
+void	swap_a(t_stack *stack_a, t_stack *stack_b, bool print)
 {
 	t_node	*temp;
 
-	if (dll_size(stack_a) <= 2)
+	if (dll_size(stack_a) < 2 && stack_b == NULL)
 		return ;
+	else if (dll_size(stack_a) < 2 && stack_b != NULL)
+		exit_error_cmd(stack_a, stack_b);
 	temp = dll_new_node(stack_a->head->value);
 	stack_a->head->value = stack_a->head->next->value;
 	stack_a->head->next->value = temp->value;
@@ -28,12 +30,14 @@ void	swap_a(t_stack *stack_a, bool print)
 		write(1, "sa\n", 3);
 }
 
-void	swap_b(t_stack *stack_b, bool print)
+void	swap_b(t_stack *stack_b, t_stack *stack_a, bool print)
 {
 	t_node	*temp;
 
-	if (dll_size(stack_b) <= 2)
+	if (dll_size(stack_b) < 2 && stack_a == NULL)
 		return ;
+	else if (dll_size(stack_b) < 2 && stack_a != NULL)
+		exit_error_cmd(stack_a, stack_b);
 	temp = dll_new_node(stack_b->head->value);
 	stack_b->head->value = stack_b->head->next->value;
 	stack_b->head->next->value = temp->value;
@@ -45,10 +49,10 @@ void	swap_b(t_stack *stack_b, bool print)
 
 void	swap_ss(t_stack *stack_a, t_stack *stack_b)
 {
-	if (dll_size(stack_a) <= 2 || dll_size(stack_b) <= 2)
+	if (dll_size(stack_a) < 2 || dll_size(stack_b) < 2)
 		return ;
-	swap_a(stack_a, false);
-	swap_b(stack_b, false);
+	swap_a(stack_a, NULL, false);
+	swap_b(stack_b, NULL,false);
 	write(1, "ss\n", 3);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 15:38:08 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 18:16:40 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ t_node				*find_biggest_b(t_stack *stack_b);
 t_node				*find_smallest_b(t_stack *stack_b);
 t_node				*find_biggest_a(t_stack *stack_a);
 t_node				*find_smallest_a(t_stack *stack_a);
-t_node				*find_closest(t_stack *stack_b, t_node *node);
 
 /*----------------------Sort-----------------------*/
 
@@ -93,7 +92,8 @@ bool				is_sort(t_stack *stack);
 void				put_best_node_top(t_stack *stack_a, t_stack *stack_b,
 						t_node *min, t_node *best);
 void				sort(t_stack *stack_a, t_stack *stack_b);
-void				final_rotate(t_stack *stack_a);
+void	final_rotate(t_stack *stack_a, t_stack *stack_b);
+
 
 /*----------------------Move-----------------------*/
 
