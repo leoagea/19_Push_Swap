@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagea < lagea@student.s19.be >             +#+  +:+       +#+        */
+/*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:37:33 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/18 00:29:38 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 14:54:18 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	rotate_b(t_stack *stack_b, bool print)
 		write(1, "rb\n", 3);
 }
 
-void	rotate_rr(t_stack *stack)
+void	rotate_rr(t_stack *stack_a, t_stack *stack_b)
 {
-	rotate_a(stack, false);
-	rotate_b(stack, false);
+	rotate_a(stack_a, false);
+	rotate_b(stack_b, false);
 	write(1, "rr\n", 3);
 }
