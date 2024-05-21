@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 14:17:55 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 12:12:26 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000000
+# endif
 
 /*-----------------------------------------LIBFT---------------------------------------------*/
 /*Libc functions*/
@@ -128,5 +132,19 @@ void				dll_delete_tail(struct dll_edge *edge);
 void				dll_print_forward(struct dll_edge *edge);
 void				dll_print_backward(struct dll_edge *edge);
 void				dll_clear(struct dll_edge *edge);
+
+/*-----------------------------GET NEXT LINE---------------------------------*/
+
+/* get_next_line */
+char				*get_next_line(int fd);
+char				*ft_set_line(char *line_buffer);
+char				*ft_fill_line_buffer(int fd, char *stash, char *buffer);
+
+/* get_next_line_utils */
+int					my_strlen(const char *str);
+char				*strchr_index(char *str);
+char				*my_strdup(char *s1);
+char				*strjoin(char *s1, char *s2);
+char				*substr(char *s, int start, int len);
 
 #endif
