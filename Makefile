@@ -6,7 +6,7 @@
 #    By: lagea <lagea@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/06 01:08:23 by lagea             #+#    #+#              #
-#    Updated: 2024/05/17 15:25:45 by lagea            ###   ########.fr        #
+#    Updated: 2024/05/21 13:28:00 by lagea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,18 @@ ORANGE=\033[38;2;255;165;0m
 NC=\033[0m 
 
 NAME		= push_swap
-
+BONUS 		= checker
+	
 SRC_DIR		= src/
+BONUS_DIR	= bonus/
 OBJ_DIR		= obj/
+OBJB_DIR	= obj_bonus/
 INC_DIR		= inc/
 
-SRC 		= $(wildcard $(SRC_DIR)*.c)  
+SRC 		= $(wildcard $(SRC_DIR)*.c)
+SRCB 		= $(wildcard $(BONUS_DIR)*.c)
 OBJ			= $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+OBJB		= $(SRCB:$(BONUS_DIR)%.c=$(OBJB_DIR)%.o)
 
 LIBFT 		= lib/libft.a
 LIBFT_PATH 	= libft/
@@ -43,18 +48,40 @@ define progress_bar_push_swap
 	@if [ $(CURRENT_FILE) -eq $(TOTAL_FILES) ]; then echo ""; fi
 endef
 
+TOTAL_FILES_BONUS 	:= $(words $(SRCB))
+CURRENT_FILE_BONUS 	:= 0
+
+define progress_bar_checker
+    @$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE_BONUS) + 1))))
+    @printf "\r$(YELLOW)Compiling Push Swap... [%-$(TOTAL_FILES_BONUS)s] %d/%d $(NC)" $$(for i in $$(seq 1 $(CURRENT_FILE_BONUS)); do printf "#"; done) $(CURRENT_FILE_BONUS) $(TOTAL_FILES_BONUS)
+	@if [ $(CURRENT_FILE_BONUS) -eq $(TOTAL_FILES_BONUS) ]; then echo ""; fi
+endef
+
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INCS) -g -c $< -o $@
 	$(call progress_bar_push_swap)
 
+$(OBJB_DIR)%.o: $(BONUS_DIR)%.c
+	@mkdir -p $(OBJB_DIR)
+	@$(CC) $(CFLAGS) $(INCS) -g -c $< -o $@
+	$(call progress_bar_checker)
+	
 all: $(LIBFT) $(NAME)
+
+bonus : $(BONUS)
 
 $(NAME): $(OBJ)
 	@echo "$(GREEN)Linking objects to create executable...$(NC)"
 	@$(CC) $(OBJ) -Llib/ -lft -o $(NAME)
 	@echo "$(BLUE)Executable $(NAME) created!$(NC)"
 
+$(BONUS):$(LIBFT) $(OBJB)
+	@echo "$(GREEN)Linking objects to create executable...$(NC)"
+	@$(CC) $(OBJB) -Llib/ -lft -o $(BONUS)
+	$(call progress_bar_checker)
+	@echo "$(BLUE)Executable $(BONUS) created!$(NC)"
+	
 $(LIBFT):
 	@echo "$(YELLOW)Compiling Libft...$(NC)"
 	@$(MAKE) -C $(LIBFT_PATH)
@@ -72,7 +99,7 @@ fclean: clean
 	@$(MAKE) fclean -C $(LIBFT_PATH) > /dev/null
 	@echo "$(BLUE)Fully cleaned Libft!$(NC)"
 	@echo "$(ORANGE)Fully cleaning library for Push Swap...$(NC)"
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(BONUS)
 	@$(RM) -r $(OBJ_DIR)
 	@echo "$(BLUE)Fully cleaned Push Swap!$(NC)"
 
