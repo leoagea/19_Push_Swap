@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:47 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 18:30:20 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 18:16:53 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 		sort_until_5(stack_a, stack_b);
 		sort_five_elements(stack_a, stack_b);
 		sort(stack_a, stack_b);
-		final_rotate(stack_a);
+		final_rotate(stack_a, stack_b);
 	}
 }
 
@@ -45,10 +45,10 @@ void	sort_until_5(t_stack *stack_a, t_stack *stack_b)
 		if (stack_a->head->value < average)
 		{
 			push_b(stack_a, stack_b);
-			find_average(stack_a);
+			average = find_average(stack_a);
 		}
 		else
-			rotate_a(stack_a, true);
+			rotate_a(stack_a, stack_b, true);
 		dll_len = dll_size(stack_a);
 	}
 }
@@ -64,20 +64,20 @@ void	sort_three_elements(t_stack *stack_a, t_stack *stack_b)
 	biggest = find_biggest_a(stack_a);
 	smallest = find_smallest_a(stack_a);
 	if (smallest->index == 2 && biggest->index == 3)
-		swap_a(stack_a, stack_b);
+		swap_a(stack_a, stack_b, true);
 	else if (smallest->index == 2 && biggest->index == 1)
-		rotate_a(stack_a, true);
+		rotate_a(stack_a, stack_b, true);
 	else if (smallest->index == 3 && biggest->index == 2)
-		reverse_rotate_a(stack_a, true);
+		reverse_rotate_a(stack_a, stack_b, true);
 	else if (smallest->index == 3 && biggest->index == 1)
 	{
-		rotate_a(stack_a, true);
-		swap_a(stack_a, true);
+		rotate_a(stack_a, stack_b, true);
+		swap_a(stack_a, NULL, true);
 	}
 	else if (smallest->index == 1 && biggest->index == 2)
 	{
-		reverse_rotate_a(stack_a, true);
-		swap_a(stack_a, true);
+		reverse_rotate_a(stack_a, stack_b, true);
+		swap_a(stack_a, NULL, true);
 	}
 }
 
@@ -94,9 +94,9 @@ void	sort_five_elements(t_stack *stack_a, t_stack *stack_b)
 	while (smallest->index != 1)
 	{
 		if (smallest->median)
-			rotate_a(stack_a, true);
+			rotate_a(stack_a, stack_b, true);
 		else
-			reverse_rotate_a(stack_a, true);
+			reverse_rotate_a(stack_a, stack_b, true);
 	}
 	push_b(stack_a, stack_b);
 	find_median(stack_a);
@@ -104,9 +104,9 @@ void	sort_five_elements(t_stack *stack_a, t_stack *stack_b)
 	while (smallest->index != 1)
 	{
 		if (smallest->median)
-			rotate_a(stack_a, true);
+			rotate_a(stack_a, stack_b, true);
 		else
-			reverse_rotate_a(stack_a, true);
+			reverse_rotate_a(stack_a, stack_b, true);
 	}
 	push_b(stack_a, stack_b);
 	sort_three_elements(stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:31:37 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 18:34:58 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 15:50:55 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ long	ft_atol(const char *str)
 		res *= 10;
 		res += (*str - 48);
 		str++;
-		if (overflow > res && sign == 1)
-			return (-1);
-		else if (overflow > res && sign == -1)
-			return (0);
+		if (overflow > res)
+			return (2147483647814);
 		overflow = res;
 	}
 	return (res * sign);
