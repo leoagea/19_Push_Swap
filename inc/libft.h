@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:26:11 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 12:12:26 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 12:16:04 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 
-/*----------------------------------PRINTF-------------------------------------*/
+/*--------------------------------PRINTF---------------------------------*/
 /* Printf */
 
 int					ft_print_char(char c);
@@ -115,23 +115,22 @@ int					ft_parse_printf(const char *s, int index, va_list *par);
 /* Printf */
 int					ft_printf(const char *s, ...);
 
-/*------------------------------ADDED FUNCTIONS-----+--------------------------*/
+/*----------------------------ADDED FUNCTIONS----------------------------*/
 
 void				ft_putunbr_fd(unsigned int n, int fd);
 long				ft_atol(const char *str);
 
-/*---------------------------DOUBLE LIMKED LIST-------------------------------*/
+/*-------------------------DOUBLE LIMKED LIST----------------------------*/
 
-struct dll_edge		*dll_init(void);
 t_node				*dll_new_node(ssize_t data);
-size_t				dll_size(struct dll_edge *edge);
-void				dll_insert_head(ssize_t data, struct dll_edge *edge);
-void				dll_insert_tail(ssize_t data, struct dll_edge *edge);
-void				dll_delete_head(struct dll_edge *edge);
-void				dll_delete_tail(struct dll_edge *edge);
-void				dll_print_forward(struct dll_edge *edge);
-void				dll_print_backward(struct dll_edge *edge);
-void				dll_clear(struct dll_edge *edge);
+size_t				dll_size(t_stack *stack);
+void				dll_insert_head(ssize_t data, t_stack *stack);
+void				dll_insert_tail(ssize_t data, t_stack *stack);
+void				dll_delete_head(t_stack *stack);
+void				dll_delete_tail(t_stack *stack);
+void				dll_print_forward(t_stack *stack);
+void				dll_print_backward(t_stack *stack);
+void				dll_clear(t_stack *stack);
 
 /*-----------------------------GET NEXT LINE---------------------------------*/
 

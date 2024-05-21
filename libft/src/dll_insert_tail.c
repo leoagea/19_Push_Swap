@@ -6,32 +6,32 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 13:34:55 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/15 17:52:02 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/20 18:33:48 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 #include "../../inc/push_swap.h"
 
-void dll_insert_tail(ssize_t data, struct dll_edge *edge)
+void	dll_insert_tail(ssize_t data, t_stack *stack)
 {
-	t_node *new;
+	t_node	*new;
 
 	new = dll_new_node(data);
 	if (new == NULL)
 	{
-		dll_clear(edge);
+		dll_clear(stack);
 		return ;
 	}
-	if (edge->tail == NULL)
+	if (stack->tail == NULL)
 	{
-		edge->head = new;
-		edge->tail = new;
+		stack->head = new;
+		stack->tail = new;
 	}
 	else
 	{
-		new->prev = edge->tail;
-		edge->tail->next = new;
-		edge->tail = new;
+		new->prev = stack->tail;
+		stack->tail->next = new;
+		stack->tail = new;
 	}
 }
