@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:22:51 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 15:17:06 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 15:36:47 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ int	is_command(char *cmd)
 void execute_command(char *cmd, t_stack *stack_a, t_stack *stack_b)
 {
 	if (ft_strncmp(cmd, "sa\n", 3) == 0)
-		swap_a(stack_a, false);
+		swap_a(stack_a, stack_b, false);
 	else if (ft_strncmp(cmd, "sb\n", 3) == 0)
-		swap_b(stack_b, false);
+		swap_b(stack_b, stack_a, false);
 	else if (ft_strncmp(cmd, "ss\n", 3) == 0)
 		swap_ss(stack_a, stack_b);
 	else if (ft_strncmp(cmd, "pa\n", 3) == 0)

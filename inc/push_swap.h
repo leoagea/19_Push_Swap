@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 14:56:30 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/21 15:38:08 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void				find_cost(t_stack *stack_a, t_stack *stack_b);
 int					find_moves_bestfriend(t_stack *stack_a, t_node *bestfriend);
 int					find_moves_node(t_stack *stack_b, t_node *node);
 
-/*---------------------Extremu--------------------*/
+/*---------------------Extremum--------------------*/
 
 t_node				*find_biggest_b(t_stack *stack_b);
 t_node				*find_smallest_b(t_stack *stack_b);
@@ -97,22 +97,24 @@ void				final_rotate(t_stack *stack_a);
 
 /*----------------------Move-----------------------*/
 
-void				swap_a(t_stack *stack_a, bool print);
-void				swap_b(t_stack *stack_b, bool print);
+void				swap_a(t_stack *stack_a, t_stack *stack_b, bool print);
+void				swap_b(t_stack *stack_b, t_stack *stack_a, bool print);
 void				swap_ss(t_stack *stack_a, t_stack *stack_b);
 void				push_a(t_stack *stack_a, t_stack *stack_b);
 void				push_b(t_stack *stack_a, t_stack *stack_b);
 
 /*---------------------Rotate----------------------*/
 
-void				rotate_a(t_stack *stack_a, bool print);
-void				rotate_b(t_stack *stack_b, bool print);
+void				rotate_a(t_stack *stack_a, t_stack *stack_b, bool print);
+void				rotate_b(t_stack *stack_b, t_stack *stack_a, bool print);
 void				rotate_rr(t_stack *stack_a, t_stack *stack_b);
 
 /*----------------Reverse Rotate-------------------*/
 
-void				reverse_rotate_a(t_stack *stack_a, bool print);
-void				reverse_rotate_b(t_stack *stack_b, bool print);
+void				reverse_rotate_a(t_stack *stack_a, t_stack *stack_b,
+						bool print);
+void				reverse_rotate_b(t_stack *stack_b, t_stack *stack_a,
+						bool print);
 void				reverse_rotate_rr(t_stack *stack_a, t_stack *stack_b);
 
 /*-------------------------------------------------*/
@@ -122,5 +124,11 @@ void				reverse_rotate_rr(t_stack *stack_a, t_stack *stack_b);
 
 void				checker(t_stack *stack_a, t_stack *stack_b);
 int					is_command(char *cmd);
+void				execute_command(char *cmd, t_stack *stack_a,
+						t_stack *stack_b);
+
+/*----------------------Exit-----------------------*/
+
+void				exit_error_cmd(t_stack *stack_a, t_stack *stack_b);
 
 #endif
