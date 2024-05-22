@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 18:26:59 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 17:58:15 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,22 @@ t_node	*find_smallest_a(t_stack *stack_a)
 		}
 	}
 	return (smallest);
+}
+
+void	push_smallest(t_stack *stack_a, t_stack *stack_b)
+{
+	t_node	*smallest;
+
+	find_median(stack_a);
+	smallest = find_smallest_a(stack_a);
+	while (smallest->index != 1)
+	{
+		if (smallest->median)
+			rotate_a(stack_a, stack_b, true);
+		else
+			reverse_rotate_a(stack_a, stack_b, true);
+		smallest = find_smallest_a(stack_a);
+		index_init(stack_a);
+	}
+	push_b(stack_a, stack_b);
 }
