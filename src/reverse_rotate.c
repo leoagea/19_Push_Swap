@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:50:04 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 18:06:06 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 12:55:34 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	reverse_rotate_a(t_stack *stack_a, t_stack *stack_b, bool print)
 
 	if (stack_a->head == NULL)
 		exit_error_cmd(stack_a, stack_b);
+	temp = stack_a->tail->value;
 	dll_delete_tail(stack_a);
 	dll_insert_head(temp, stack_a);
 	index_init(stack_a);
@@ -32,6 +33,7 @@ void	reverse_rotate_b(t_stack *stack_b, t_stack *stack_a, bool print)
 
 	if (stack_b->head == NULL)
 		exit_error_cmd(stack_a, stack_b);
+	temp = stack_b->tail->value;
 	dll_delete_tail(stack_b);
 	dll_insert_head(temp, stack_b);
 	index_init(stack_b);
