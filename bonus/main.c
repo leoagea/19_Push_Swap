@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:59:20 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 18:09:04 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 15:36:09 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int main(int ac, char **av)
 	if (!stack_a || !stack_b)
 		exit(EXIT_FAILURE);
 	if (ac == 1)
-		return (free(stack_a), free(stack_b), write(2,
-				"Error Parsing 0 Arguments\n", 26), 1);
+		return (free(stack_a), free(stack_b), write(2, "Error\n", 6), 1);
 	else if (ac == 2)
 		parse_solo_arg(av, stack_a, stack_b);
 	else
