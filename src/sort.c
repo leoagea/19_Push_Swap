@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 14:43:09 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 17:43:58 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,8 @@ void	put_best_node_top(t_stack *stack_a, t_stack *stack_b, t_node *min,
 	else
 	{
 		i = dll_size(stack_b) - min->index + 1;
-		while (i > 0)
-		{
+		while (i-- > 0)
 			reverse_rotate_b(stack_b, stack_a, true);
-			i--;
-		}
 	}
 	if (best->median)
 		while (best->index != 1)
@@ -72,11 +69,8 @@ void	put_best_node_top(t_stack *stack_a, t_stack *stack_b, t_node *min,
 	else
 	{
 		i = dll_size(stack_a) - best->index + 1;
-		while (i > 0)
-		{
+		while (i-- > 0)
 			reverse_rotate_a(stack_a, stack_b, true);
-			i--;
-		}
 	}
 	push_a(stack_a, stack_b);
 }

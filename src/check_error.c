@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 15:37:00 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 17:49:41 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	check_error_arg(char **lst, size_t i)
 
 	res_atol = ft_atol(lst[i]);
 	if (res_atol > INT_MAX || res_atol < INT_MIN)
-		return (write(2, "Error\n", 6),exit(EXIT_FAILURE),0);
+		return (write(2, "Error\n", 6), exit(EXIT_FAILURE), 0);
 	return (1);
 }
 

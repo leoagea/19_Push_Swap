@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 18:03:14 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 17:48:50 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	swap_ss(t_stack *stack_a, t_stack *stack_b)
 	if (dll_size(stack_a) < 2 || dll_size(stack_b) < 2)
 		return ;
 	swap_a(stack_a, NULL, false);
-	swap_b(stack_b, NULL,false);
+	swap_b(stack_b, NULL, false);
 	write(1, "ss\n", 3);
 }
 
