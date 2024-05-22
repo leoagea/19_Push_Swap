@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:31:37 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 16:58:20 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 17:12:46 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,17 @@ static void	skip_whitespace_and_sign(const char **str, int *sign)
 }
 static int is_check(const char *str)
 {
-	int flag;
+	// int flag;
 	
+	while (((*str >= 9 && *str <= 13) || *str == 32) || *str == '-' || *str == '+')
+	{
+		str++;
+	}
 	while (*str)
 	{
-		if((*str >= 9 && *str <= 13) || *str == 32)
-			str++;
-		else if (*str == '-' || *str == '+')
-		{
-			flag = 1;
-			str++;
-		}
-		else if(!ft_isdigit(*str))
+		if(!ft_isdigit(*str))
 			return 0;
-		else if (ft_isdigit(*str) && flag == 1)
-			return 0;
-		else 
-			str++;
+		str++;
 	}
 	return 1;
 }
