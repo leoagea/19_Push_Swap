@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:47 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 18:16:53 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 15:22:14 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,15 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*min_cost;
 	t_node	*bestfriend;
-
-	if (dll_size(stack_a) == 3)
+	
+	if (dll_size(stack_a) == 1)
+		return ;
+	else if (dll_size(stack_a) == 2)
+	{
+		if (stack_a->head->value > stack_a->head->next->value)
+			swap_a(stack_a, stack_b, true);
+	}
+	else if (dll_size(stack_a) == 3)
 		sort_three_elements(stack_a, stack_b);
 	else if (dll_size(stack_a) == 5)
 	{
@@ -30,6 +37,10 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 		sort_five_elements(stack_a, stack_b);
 		sort(stack_a, stack_b);
 		final_rotate(stack_a, stack_b);
+		// printf("stack B\n");
+		// print_stack(stack_b);
+		// printf("\nstack A\n");
+		// print_stack(stack_a);
 	}
 }
 
@@ -97,6 +108,8 @@ void	sort_five_elements(t_stack *stack_a, t_stack *stack_b)
 			rotate_a(stack_a, stack_b, true);
 		else
 			reverse_rotate_a(stack_a, stack_b, true);
+		smallest = find_smallest_a(stack_a);
+		index_init(stack_a);
 	}
 	push_b(stack_a, stack_b);
 	find_median(stack_a);
@@ -107,6 +120,8 @@ void	sort_five_elements(t_stack *stack_a, t_stack *stack_b)
 			rotate_a(stack_a, stack_b, true);
 		else
 			reverse_rotate_a(stack_a, stack_b, true);
+		smallest = find_smallest_a(stack_a);
+		index_init(stack_a);
 	}
 	push_b(stack_a, stack_b);
 	sort_three_elements(stack_a, stack_b);

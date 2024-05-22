@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 18:16:30 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 14:43:09 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,15 +110,14 @@ void	final_rotate(t_stack *stack_a, t_stack *stack_b)
 	smallest = find_smallest_a(stack_a);
 	index_init(stack_a);
 	find_median(stack_a);
-	i = dll_size(stack_a) - smallest->index + 1;
-	while (i > 0)
+	while (smallest->index != 1)
 	{
 		if (smallest->median)
 			rotate_a(stack_a, stack_b, true);
 		else
 			reverse_rotate_a(stack_a, stack_b, true);
 		index_init(stack_a);
-		find_median(stack_a);
-		i--;
+		smallest = find_smallest_a(stack_a);
+		index_init(stack_a);
 	}
 }
