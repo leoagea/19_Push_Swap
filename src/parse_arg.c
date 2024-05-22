@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 15:37:13 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 16:35:52 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	parse_solo_arg(char **av, t_stack *stack_a, t_stack *stack_b)
 	i = -1;
 	lst = ft_split(av[1], ' ');
 	len = d_array_len(lst);
+	if (len == 0)
+		exit(EXIT_FAILURE);
 	while (++i < len)
 	{
 		if (check_error_arg(lst, i))
