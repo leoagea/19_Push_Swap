@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 18:09:00 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 15:36:19 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	parse_mul_arg(int ac, char **av, t_stack *stack_a, t_stack *stack_b)
 	{
 		if (nbr_word_arg(av[i], ' ') != 1)
 		{
-			write(2, "Error Parsing\n", 14);
+			write(2, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
 		if (check_error_arg(av, i))

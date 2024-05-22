@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 18:09:12 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 15:35:12 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_dupes_stack(t_stack *stack_a, t_stack *stack_b)
 			{
 				dll_clear(stack_a);
 				dll_clear(stack_b);
-				write(2, "Error Duplicate\n", 16);
+				write(2, "Error\n", 6);
 				exit(EXIT_FAILURE);
 			}
 			check = check->next;

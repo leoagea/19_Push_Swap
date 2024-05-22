@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:05:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/21 18:09:08 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/22 15:35:51 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	exit_error(t_stack *stack, char **lst, size_t i)
 		free(lst[i++]);
 	if (stack)
 	{
-		write(2, "Error Parsing\n", 14);
+		write(2, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
-	write(2, "Error Parsing\n", 14);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
@@ -30,7 +30,7 @@ void	exit_error_array(char **lst, size_t i)
 {
 	while (lst[i] != NULL)
 		free(lst[i++]);
-	write(2, "Error Parsing\n", 14);
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
 
