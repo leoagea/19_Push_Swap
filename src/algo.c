@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:47 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 12:08:11 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 17:52:54 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	sort_until_5(t_stack *stack_a, t_stack *stack_b)
 		average = find_average(stack_a);
 		if (stack_a->head->value < average)
 		{
-			push_b(stack_a, stack_b);
+			push_b(stack_a, stack_b, true);
 			average = find_average(stack_a);
 		}
 		else
@@ -94,7 +94,7 @@ void	sort_four_elements(t_stack *stack_a, t_stack *stack_b)
 {
 	push_smallest(stack_a, stack_b);
 	sort_three_elements(stack_a, stack_b);
-	push_a(stack_a, stack_b);
+	push_a(stack_a, stack_b, true);
 }
 
 void	sort_five_elements(t_stack *stack_a, t_stack *stack_b)
@@ -102,6 +102,6 @@ void	sort_five_elements(t_stack *stack_a, t_stack *stack_b)
 	push_smallest(stack_a, stack_b);
 	push_smallest(stack_a, stack_b);
 	sort_three_elements(stack_a, stack_b);
-	push_a(stack_a, stack_b);
-	push_a(stack_a, stack_b);
+	push_a(stack_a, stack_b, true);
+	push_a(stack_a, stack_b, true);
 }

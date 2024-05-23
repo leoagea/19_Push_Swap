@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 17:43:58 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 17:42:59 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	put_best_node_top(t_stack *stack_a, t_stack *stack_b, t_node *min,
 		while (i-- > 0)
 			reverse_rotate_a(stack_a, stack_b, true);
 	}
-	push_a(stack_a, stack_b);
+	push_a(stack_a, stack_b, true);
 }
 
 void	sort(t_stack *stack_a, t_stack *stack_b)

@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:03:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 17:58:15 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 17:53:00 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,5 @@ void	push_smallest(t_stack *stack_a, t_stack *stack_b)
 		smallest = find_smallest_a(stack_a);
 		index_init(stack_a);
 	}
-	push_b(stack_a, stack_b);
+	push_b(stack_a, stack_b, true);
 }
