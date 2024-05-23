@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 17:48:50 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 17:48:57 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	swap_ss(t_stack *stack_a, t_stack *stack_b)
 	write(1, "ss\n", 3);
 }
 
-void	push_a(t_stack *stack_a, t_stack *stack_b)
+void	push_a(t_stack *stack_a, t_stack *stack_b, bool print)
 {
 	t_node	*temp;
 
@@ -67,10 +67,11 @@ void	push_a(t_stack *stack_a, t_stack *stack_b)
 	stack_b->head = temp->next;
 	index_init_stack(stack_a, stack_b);
 	free(temp);
-	write(1, "pa\n", 3);
+	if (print)
+		write(1, "pa\n", 3);
 }
 
-void	push_b(t_stack *stack_a, t_stack *stack_b)
+void	push_b(t_stack *stack_a, t_stack *stack_b, bool print)
 {
 	t_node	*temp;
 
@@ -81,5 +82,6 @@ void	push_b(t_stack *stack_a, t_stack *stack_b)
 	stack_a->head = temp->next;
 	index_init_stack(stack_a, stack_b);
 	free(temp);
-	write(1, "pb\n", 3);
+	if (print)
+		write(1, "pb\n", 3);
 }
