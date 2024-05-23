@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 17:53:53 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 17:19:31 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	main(int ac, char **av)
 		parse_mul_arg(ac, av, stack_a, stack_b);
 	}
 	push_swap(stack_a, stack_b);
-	// print_stack(stack_a);
 	dll_clear(stack_a);
 	dll_clear(stack_b);
 	return (0);

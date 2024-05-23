@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:31:37 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 12:51:57 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 15:49:58 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,26 @@ static void	skip_whitespace_and_sign(const char **str, int *sign)
 	}
 }
 
-static int	is_check(const char *str)
+static int	is_check(char *str)
 {
-	while (((*str >= 9 && *str <= 13) || *str == 32))
+	int i;
+
+	i = 0;
+	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) || str[i] == '-' || str[i] == '+')
 	{
-		if (*(str + 1) == '\0' && *str == '-')
-			return 0;
-		else if (*(str + 1) == '\0' && *str == '+')
-			return 0;
-		str++;
+		// if (*(str + 1) == '\0' && *str == '-')
+		// 	return 0;
+		// else if (*(str + 1) == '\0' && *str == '+')
+		// 	return 0;
+		i++;
 	}
-	while (*str)
+	while (str[i])
 	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
+		if (!ft_isdigit(str[i]))
+			return (free(str),0);
+		i++;
 	}
-	return (1);
+	return (free(str), 1);
 }
 
 long	ft_atol(const char *str)
@@ -52,7 +55,7 @@ long	ft_atol(const char *str)
 	res = 0;
 	sign = 1;
 	overflow = 0;
-	if (!is_check(ft_strdup(str)))
+	if (!is_check(ft_strdup((char *) str)))
 		return (2147483647814);
 	skip_whitespace_and_sign(&str, &sign);
 	if (ft_isdigit(*str))

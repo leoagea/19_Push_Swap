@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 14:30:55 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 18:33:28 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 16:55:37 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@ void	dll_clear(t_stack *stack)
 	t_node	*temp;
 	t_node	*current;
 
+	if (!stack)
+		return ;
 	current = stack->head;
-	while (current)
+	while (current != NULL)
 	{
 		temp = current;
 		current = current->next;
 		free(temp);
 	}
+	free(stack);
 }
