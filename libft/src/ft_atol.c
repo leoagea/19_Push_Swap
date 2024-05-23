@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:31:37 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 15:49:58 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 17:32:40 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,16 @@ static void	skip_whitespace_and_sign(const char **str, int *sign)
 
 static int	is_check(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) || str[i] == '-' || str[i] == '+')
-	{
-		// if (*(str + 1) == '\0' && *str == '-')
-		// 	return 0;
-		// else if (*(str + 1) == '\0' && *str == '+')
-		// 	return 0;
+	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) || str[i] == '-'
+		|| str[i] == '+')
 		i++;
-	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			return (free(str),0);
+			return (free(str), 0);
 		i++;
 	}
 	return (free(str), 1);
@@ -55,7 +50,7 @@ long	ft_atol(const char *str)
 	res = 0;
 	sign = 1;
 	overflow = 0;
-	if (!is_check(ft_strdup((char *) str)))
+	if (!is_check(ft_strdup((char *)str)))
 		return (2147483647814);
 	skip_whitespace_and_sign(&str, &sign);
 	if (ft_isdigit(*str))
