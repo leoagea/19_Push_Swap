@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 12:05:38 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 17:53:08 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ void				final_rotate(t_stack *stack_a, t_stack *stack_b);
 void				swap_a(t_stack *stack_a, t_stack *stack_b, bool print);
 void				swap_b(t_stack *stack_b, t_stack *stack_a, bool print);
 void				swap_ss(t_stack *stack_a, t_stack *stack_b);
-void				push_a(t_stack *stack_a, t_stack *stack_b);
-void				push_b(t_stack *stack_a, t_stack *stack_b);
+void				push_a(t_stack *stack_a, t_stack *stack_b, bool print);
+void				push_b(t_stack *stack_a, t_stack *stack_b, bool print);
 
 /*---------------------Rotate----------------------*/
 
