@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 17:50:58 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 12:05:38 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void				exit_stack(t_stack *stack_a, t_stack *stack_b);
 void				push_swap(t_stack *stack_a, t_stack *stack_b);
 void				sort_until_5(t_stack *stack_a, t_stack *stack_b);
 void				sort_three_elements(t_stack *stack_a, t_stack *stack_b);
+void				sort_four_elements(t_stack *stack_a, t_stack *stack_b);
 void				sort_five_elements(t_stack *stack_a, t_stack *stack_b);
 
 /*----------------------Cost-----------------------*/

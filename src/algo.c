@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 12:56:47 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/22 17:58:38 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/23 12:08:11 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 	}
 	else if (dll_size(stack_a) == 3)
 		sort_three_elements(stack_a, stack_b);
+	else if (dll_size(stack_a) == 4)
+		sort_four_elements(stack_a, stack_b);
 	else if (dll_size(stack_a) == 5)
-	{
 		sort_five_elements(stack_a, stack_b);
-	}
 	else
 	{
 		sort_until_5(stack_a, stack_b);
@@ -92,6 +92,9 @@ void	sort_three_elements(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_four_elements(t_stack *stack_a, t_stack *stack_b)
 {
+	push_smallest(stack_a, stack_b);
+	sort_three_elements(stack_a, stack_b);
+	push_a(stack_a, stack_b);
 }
 
 void	sort_five_elements(t_stack *stack_a, t_stack *stack_b)
