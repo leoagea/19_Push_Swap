@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:05:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/24 16:24:27 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/24 16:50:11 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	exit_error_cmd(t_stack *stack_a, t_stack *stack_b)
 	exit(EXIT_FAILURE);
 }
 
-void exit_malloc(t_stack *stack_a, t_stack *stack_b)
+void	exit_malloc(t_stack *stack_a, t_stack *stack_b)
 {
 	if (!stack_a && !stack_b)
 		exit(EXIT_FAILURE);

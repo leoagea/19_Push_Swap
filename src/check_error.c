@@ -6,14 +6,15 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/24 15:30:05 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/24 16:50:06 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 #include "../inc/push_swap.h"
 
-size_t	check_error_arg(char **lst, size_t i, t_stack *stack_a, t_stack *stack_b)
+size_t	check_error_arg(char **lst, size_t i, t_stack *stack_a,
+		t_stack *stack_b)
 {
 	long	res_atol;
 
