@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 13:20:50 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 17:54:27 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/24 15:54:12 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char **av)
 	stack_a = stack_init();
 	stack_b = stack_init();
 	if (!stack_a || !stack_b)
-		exit(EXIT_FAILURE);
+		exit_malloc(stack_a, stack_b);
 	if (ac == 1)
 		return (free(stack_a), free(stack_b), 1);
 	else if (ac == 2)
