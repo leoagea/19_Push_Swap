@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 14:43:39 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/24 16:23:18 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	parse_mul_arg(int ac, char **av, t_stack *stack_a, t_stack *stack_b)
 		if (nbr_word_arg(av[i], ' ') != 1)
 		{
 			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
+			exit_stack(stack_a, stack_b);
 		}
-		if (check_error_arg(av, i))
+		if (check_error_arg(av, i, stack_a, stack_b))
 			dll_insert_tail(ft_atoi(av[i]), stack_a);
 		i++;
 	}
@@ -65,7 +65,7 @@ void	parse_solo_arg(char **av, t_stack *stack_a, t_stack *stack_b)
 	}
 	while (++i < len)
 	{
-		if (check_error_arg(lst, i))
+		if (check_error_arg(lst, i, stack_a, stack_b))
 			dll_insert_tail(ft_atoi(lst[i]), stack_a);
 		free(lst[i]);
 	}
