@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:31:01 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 17:53:08 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/24 15:34:14 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void				print_stack(t_stack *stack);
 
 /*-------------------Check_error--------------------*/
 
-size_t				check_error_arg(char **lst, size_t i);
+size_t				check_error_arg(char **lst, size_t i, t_stack *stack_a,
+						t_stack *stack_b);
 void				check_dupes_stack(t_stack *stack_a, t_stack *stack_b);
 int					nbr_word_arg(char const *s, char c);
 
@@ -62,6 +63,8 @@ int					nbr_word_arg(char const *s, char c);
 void				exit_error(t_stack *stack, char **lst, size_t i);
 void				exit_error_array(char **lst, size_t i);
 void				exit_stack(t_stack *stack_a, t_stack *stack_b);
+void				exit_error_cmd(t_stack *stack_a, t_stack *stack_b);
+void				exit_malloc(t_stack *stack_a, t_stack *stack_b);
 
 /*----------------------Algo-----------------------*/
 
