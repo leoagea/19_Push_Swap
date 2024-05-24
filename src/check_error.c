@@ -6,20 +6,20 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 14:37:58 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/24 15:30:05 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/libft.h"
 #include "../inc/push_swap.h"
 
-size_t	check_error_arg(char **lst, size_t i)
+size_t	check_error_arg(char **lst, size_t i, t_stack *stack_a, t_stack *stack_b)
 {
 	long	res_atol;
 
 	res_atol = ft_atol(lst[i]);
 	if (res_atol > INT_MAX || res_atol < INT_MIN)
-		return (write(2, "Error\n", 6), exit(0), 0);
+		return (write(2, "Error\n", 6), exit_stack(stack_a, stack_b), 0);
 	return (1);
 }
 
