@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:22:51 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/27 13:23:37 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/27 15:09:56 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ bool	is_sort(t_stack *stack_a)
 
 void	checker(t_stack *stack_a, t_stack *stack_b)
 {
-	// char	*cmd;
-
 	while (true)
 	{
 		stack_a->line = get_next_line(0);
