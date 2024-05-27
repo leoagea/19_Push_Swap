@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 17:48:57 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/27 13:25:35 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	swap_a(t_stack *stack_a, t_stack *stack_b, bool print)
 
 	if (dll_size(stack_a) < 2 && stack_b == NULL)
 		return ;
-	else if (dll_size(stack_a) < 2 && stack_b != NULL)
-		exit_error_cmd(stack_a, stack_b);
 	temp = dll_new_node(stack_a->head->value);
 	stack_a->head->value = stack_a->head->next->value;
 	stack_a->head->next->value = temp->value;
@@ -36,8 +34,6 @@ void	swap_b(t_stack *stack_b, t_stack *stack_a, bool print)
 
 	if (dll_size(stack_b) < 2 && stack_a == NULL)
 		return ;
-	else if (dll_size(stack_b) < 2 && stack_a != NULL)
-		exit_error_cmd(stack_a, stack_b);
 	temp = dll_new_node(stack_b->head->value);
 	stack_b->head->value = stack_b->head->next->value;
 	stack_b->head->next->value = temp->value;
