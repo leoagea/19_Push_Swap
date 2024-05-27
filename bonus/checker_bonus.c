@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:22:51 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/24 16:29:25 by lagea            ###   ########.fr       */
+/*   Updated: 2024/05/27 13:23:37 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,27 @@ bool	is_sort(t_stack *stack_a)
 
 void	checker(t_stack *stack_a, t_stack *stack_b)
 {
-	char	*cmd;
+	// char	*cmd;
 
 	while (true)
 	{
-		cmd = get_next_line(0);
-		if (cmd == NULL)
+		stack_a->line = get_next_line(0);
+		if (stack_a->line == NULL)
 			break ;
-		if (ft_strncmp(cmd, "\n", 1) == 0)
+		if (ft_strncmp(stack_a->line, "\n", 1) == 0)
 		{
-			free(cmd);
+			free(stack_a->line);
 			break ;
 		}
-		else if (!is_command(cmd))
+		else if (!is_command(stack_a->line))
 		{
+			free(stack_a->line);
 			write(1, "Error\n", 6);
 			exit_stack(stack_a, stack_b);
 		}
 		else
-			execute_command(cmd, stack_a, stack_b);
-		free(cmd);
+			execute_command(stack_a->line, stack_a, stack_b);
+		free(stack_a->line);
 	}
 }
 
