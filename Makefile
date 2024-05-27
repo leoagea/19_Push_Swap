@@ -6,7 +6,7 @@
 #    By: lagea <lagea@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/06 01:08:23 by lagea             #+#    #+#              #
-#    Updated: 2024/05/24 16:30:36 by lagea            ###   ########.fr        #
+#    Updated: 2024/05/27 13:31:45 by lagea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ INC_DIR		= inc/
 SRC 		= src/main.c src/algo.c src/check_error.c src/cost.c src/exit.c src/extremum.c \
 			src/init_stack.c src/move.c src/parse_arg.c src/reverse_rotate.c src/rotate.c src/sort.c
 SRCB 		= bonus/main_bonus.c bonus/checker_bonus.c bonus/move_bonus.c src/check_error.c src/exit.c \
- 			src/init_stack.c src/parse_arg.c src/reverse_rotate.c src/rotate.c
+ 			src/init_stack.c src/parse_arg.c bonus/reverse_rotate_bonus.c bonus/rotate_bonus.c
 OBJ			= $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 OBJB		= $(SRCB:$(BONUS_DIR)%.c=$(OBJB_DIR)%.o)
 
