@@ -6,7 +6,7 @@
 #    By: lagea <lagea@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/06 01:08:23 by lagea             #+#    #+#              #
-#    Updated: 2024/05/27 13:31:45 by lagea            ###   ########.fr        #
+#    Updated: 2024/06/03 13:03:48 by lagea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,12 +61,12 @@ endef
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
-	@$(CC) $(CFLAGS) $(INCS) -g -c $< -o $@
+	@$(CC) $(C_FLAGS) $(INCS) -g -c $< -o $@
 	$(call progress_bar_push_swap)
 
 $(OBJB_DIR)%.o: $(BONUS_DIR)%.c
 	@mkdir -p $(OBJB_DIR)
-	@$(CC) $(CFLAGS) $(INCS) -g -c $< -o $@
+	@$(CC) $(C_FLAGS) $(INCS) -g -c $< -o $@
 	$(call progress_bar_checker)
 	
 all: $(LIBFT) $(NAME)

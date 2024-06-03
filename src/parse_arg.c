@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:29:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/24 16:23:18 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/03 13:13:29 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ size_t	d_array_len(char **lst)
 
 void	parse_mul_arg(int ac, char **av, t_stack *stack_a, t_stack *stack_b)
 {
-	size_t	i;
+	int	i;
 
 	i = 1;
 	while (i < ac)
 	{
-		if (nbr_word_arg(av[i], ' ') != 1)
+		if (nbr_word_arg(av[i]) != 1)
 		{
 			write(2, "Error\n", 6);
 			exit_stack(stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 18:38:39 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/24 16:50:06 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/03 13:12:03 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	check_dupes_stack(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-int	nbr_word_arg(char const *s, char c)
+int	nbr_word_arg(char const *s)
 {
 	int	i;
 	int	index;

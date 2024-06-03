@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:37:33 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/27 13:26:16 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/03 13:20:04 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 void	rotate_a(t_stack *stack_a, t_stack *stack_b, bool print)
 {
+	(void) stack_b;
 	ssize_t	temp;
 
 	if (stack_a->head == NULL)
@@ -29,6 +30,7 @@ void	rotate_a(t_stack *stack_a, t_stack *stack_b, bool print)
 
 void	rotate_b(t_stack *stack_b, t_stack *stack_a, bool print)
 {
+	(void) stack_a;
 	ssize_t	temp;
 
 	if (stack_b->head == NULL)

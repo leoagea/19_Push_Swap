@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 15:14:07 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/23 17:42:59 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/03 13:20:32 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 
 void	final_rotate(t_stack *stack_a, t_stack *stack_b)
 {
-	int		i;
 	t_node	*smallest;
 
 	smallest = find_smallest_a(stack_a);
