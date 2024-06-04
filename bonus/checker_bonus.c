@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:22:51 by lagea             #+#    #+#             */
-/*   Updated: 2024/06/04 17:42:17 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/04 17:45:59 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool	is_sort(t_stack *stack_a)
 {
 	t_node	*current;
 
-	if (stack->a == NULL)
+	if (stack_a == NULL)
 		return (false);
 	current = stack_a->head;
 	while (current->next != NULL)
