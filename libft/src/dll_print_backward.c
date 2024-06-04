@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 13:38:24 by lagea             #+#    #+#             */
-/*   Updated: 2024/06/03 14:19:26 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/04 12:57:35 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	dll_print_backward(t_stack *stack)
 	current = stack->tail;
 	while (current != NULL)
 	{
-		/*printf("index %d : %zd\n", current->index, current->value);*/
 		current = current->prev;
 	}
 }

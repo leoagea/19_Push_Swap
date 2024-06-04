@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 20:44:30 by lagea             #+#    #+#             */
-/*   Updated: 2024/06/03 14:11:25 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/04 12:56:25 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void	swap_a(t_stack *stack_a, t_stack *stack_b, bool print)
 {
-	(void) stack_b;
 	t_node	*temp;
 
+	(void)stack_b;
 	if (dll_size(stack_a) < 2)
 		return ;
 	temp = dll_new_node(stack_a->head->value);
@@ -31,9 +31,9 @@ void	swap_a(t_stack *stack_a, t_stack *stack_b, bool print)
 
 void	swap_b(t_stack *stack_b, t_stack *stack_a, bool print)
 {
-	(void) stack_a;
 	t_node	*temp;
 
+	(void)stack_a;
 	if (dll_size(stack_b) < 2)
 		return ;
 	temp = dll_new_node(stack_b->head->value);
