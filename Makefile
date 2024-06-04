@@ -6,7 +6,7 @@
 #    By: lagea <lagea@student.s19.be>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/06 01:08:23 by lagea             #+#    #+#              #
-#    Updated: 2024/06/03 13:03:48 by lagea            ###   ########.fr        #
+#    Updated: 2024/06/03 13:30:55 by lagea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,6 +94,7 @@ clean:
 	@echo "$(GREEN)Cleaned objects Libft!$(NC)"
 	@echo "$(ORANGE)Cleaning objects for Push Swap...$(NC)"
 	@$(RM) $(OBJ_DIR)*.o
+	@$(RM) $(OBJB_DIR)*.o
 	@echo "$(GREEN)Cleaned Push Swap objects!$(NC)"
 
 fclean: clean
@@ -103,6 +104,7 @@ fclean: clean
 	@echo "$(ORANGE)Fully cleaning library for Push Swap...$(NC)"
 	@$(RM) $(NAME) $(BONUS)
 	@$(RM) -r $(OBJ_DIR)
+	@$(RM) -r $(OBJB_DIR)
 	@echo "$(BLUE)Fully cleaned Push Swap!$(NC)"
 
 re: fclean all
