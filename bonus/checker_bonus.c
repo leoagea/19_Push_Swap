@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 12:22:51 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/27 15:09:56 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/04 15:00:57 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	checker(t_stack *stack_a, t_stack *stack_b)
 		else if (!is_command(stack_a->line))
 		{
 			free(stack_a->line);
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			exit_stack(stack_a, stack_b);
 		}
 		else

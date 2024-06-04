@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:59:20 by lagea             #+#    #+#             */
-/*   Updated: 2024/06/03 13:22:49 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/04 15:00:50 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 	}
 	checker(stack_a, stack_b);
 	if (is_sort(stack_a) && stack_b->head == NULL)
-		return (write(0, "OK\n", 3), exit_stack(stack_a, stack_b), 0);
+		return (write(1, "OK\n", 3), exit_stack(stack_a, stack_b), 0);
 	else
-		return (write(0, "KO\n", 3), exit_stack(stack_a, stack_b), 0);
+		return (write(1, "KO\n", 3), exit_stack(stack_a, stack_b), 0);
 }
