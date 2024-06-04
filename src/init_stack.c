@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/02 11:40:03 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 18:30:37 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/03 14:19:46 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,22 +77,5 @@ void	find_median(t_stack *stack)
 		else
 			current->median = false;
 		current = current->next;
-	}
-}
-
-void	print_stack(t_stack *stack)
-{
-	t_node	*temp;
-
-	temp = stack->head;
-	if (temp == NULL)
-	{
-		ft_printf("Liste vide");
-		return ;
-	}
-	while (temp != NULL)
-	{
-		printf("[%zd]\n", temp->value);
-		temp = temp->next;
 	}
 }
