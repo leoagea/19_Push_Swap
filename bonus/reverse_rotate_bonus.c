@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   reverse_rotate_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 00:50:04 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/27 13:29:13 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/03 14:11:59 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 void	reverse_rotate_a(t_stack *stack_a, t_stack *stack_b, bool print)
 {
+	(void) stack_b;
 	ssize_t	temp;
 
 	if (stack_a->head == NULL)
-		exit_error_cmd(stack_a, stack_b);
+		return ;
 	temp = stack_a->tail->value;
 	dll_delete_tail(stack_a);
 	dll_insert_head(temp, stack_a);
@@ -29,10 +30,11 @@ void	reverse_rotate_a(t_stack *stack_a, t_stack *stack_b, bool print)
 
 void	reverse_rotate_b(t_stack *stack_b, t_stack *stack_a, bool print)
 {
+	(void) stack_a;
 	ssize_t	temp;
 
 	if (stack_b->head == NULL)
-		exit_error_cmd(stack_a, stack_b);
+		return ;
 	temp = stack_b->tail->value;
 	dll_delete_tail(stack_b);
 	dll_insert_head(temp, stack_b);
