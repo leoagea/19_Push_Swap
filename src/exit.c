@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 15:05:02 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/27 13:26:45 by lagea            ###   ########.fr       */
+/*   Updated: 2024/06/04 17:49:07 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	exit_stack(t_stack *stack_a, t_stack *stack_b)
 {
 	dll_clear(stack_a);
 	dll_clear(stack_b);
-	exit(EXIT_FAILURE);
+	exit(EXIT_SUCCESS);
 }
 
 void	exit_error_cmd(t_stack *stack_a, t_stack *stack_b)
