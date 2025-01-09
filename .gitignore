@@ -56,6 +56,5 @@ dkms.conf
 push_swap
 0
 checker
-checker_Mac
 push_swap_test.sh
 traces.txt
