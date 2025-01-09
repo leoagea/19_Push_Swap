@@ -6,7 +6,7 @@
 /*   By: lagea <lagea@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 18:18:36 by lagea             #+#    #+#             */
-/*   Updated: 2024/05/20 18:30:50 by lagea            ###   ########.fr       */
+/*   Updated: 2025/01/09 14:14:10 by lagea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 t_node	*find_best_friend(t_stack *stack_a, t_node *node)
 {
 	t_node	*biggest;
-	t_node	*smallest;
 	t_node	*current;
 	t_node	*closest;
 
 	biggest = find_biggest_a(stack_a);
-	smallest = find_smallest_a(stack_a);
 	closest = biggest;
 	current = stack_a->head;
 	while (current != NULL)
